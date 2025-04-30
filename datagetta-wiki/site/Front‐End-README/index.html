@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>The Eye - Auburn Baseball Data Visualization - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#the-eye-auburn-baseball-data-visualization" class="nav-link">The Eye - Auburn Baseball Data Visualization</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#domain" class="nav-link">Domain</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#project-structure" class="nav-link">Project Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#key-technologies" class="nav-link">Key Technologies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#configuration-files" class="nav-link">Configuration Files</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#available-scripts" class="nav-link">Available Scripts</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#the-eye-layout-appthe-eyelayouttsx" class="nav-link">The Eye Layout (app/the-eye/layout.tsx)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#conference-page-appthe-eyepagetsx" class="nav-link">Conference Page (app/the-eye/page.tsx)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#authentication" class="nav-link">Authentication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#prisma-database-management" class="nav-link">Prisma - Database Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#handling-postgresql-bigint-issues" class="nav-link">Handling PostgreSQL BigInt Issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#future-work" class="nav-link">Future Work</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#deployment" class="nav-link">Deployment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#contributing" class="nav-link">Contributing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="the-eye-auburn-baseball-data-visualization">The Eye - Auburn Baseball Data Visualization</h1>
+<p>This project is built using <a href="https://nextjs.org/">Next.js</a> and was initially bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app"><code>create-next-app</code></a>. The Eye serves as a data visualization tool for Auburn Baseball, integrating various analytics to provide insights into player and team performance.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>To start the development server, use one of the following commands:</p>
+<pre><code class="language-bash">npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+</code></pre>
+<p>Once started, open <a href="http://localhost:3000">http://localhost:3000</a> in your browser to access the application.</p>
+<h2 id="domain">Domain</h2>
+<ul>
+<li><strong>Live App</strong>: <a href="https://datagetta.app">https://datagetta.app</a></li>
+<li><strong>Domain Provider</strong>: Squarespace</li>
+<li><strong>Domain Points To</strong>: <code>datagetta.cse.eng.auburn.edu</code> (for Auburn authentication)</li>
+<li><strong>Auto-renew Date</strong>: February 5, 2025</li>
+</ul>
+<h2 id="project-structure">Project Structure</h2>
+<ul>
+<li><strong><code>/app</code></strong> - Contains the core Next.js pages and layouts.</li>
+<li><strong><code>layout.tsx</code></strong> - Provides global layout structure with Material UI theming and caching.</li>
+<li><strong><code>page.tsx</code></strong> - Serves as the landing page with branding and login functionality.</li>
+<li><strong><code>/the-eye/</code></strong> - Houses primary UI components and authenticated user pages.<ul>
+<li><strong><code>layout.tsx</code></strong> - Defines the structure for authenticated pages, including the sidebar, mobile nav, and top bar.</li>
+<li><strong><code>page.tsx</code></strong> - Displays conference tables and teams, querying data from Prisma.</li>
+<li><strong><code>/components/</code></strong> - Contains reusable UI components such as <code>UI_Layout</code> (sidebar, nav, etc.).</li>
+<li><strong><code>/player/</code></strong> - Handles player-related data visualization.</li>
+<li><strong><code>/team/</code></strong> - Manages team-level analytics and insights.</li>
+</ul>
+</li>
+<li><strong><code>/utils/</code></strong> - Contains shared utilities such as theme configuration and database helpers.</li>
+<li><strong><code>/prisma/</code></strong> - Contains database schema and configuration files.</li>
+<li><strong><code>/public/</code></strong> - Holds static assets such as images.</li>
+</ul>
+<h2 id="key-technologies">Key Technologies</h2>
+<ul>
+<li><strong>Next.js (App Router)</strong> - Framework for server-side rendering and static site generation.</li>
+<li><strong>React</strong> - UI library for building components.</li>
+<li><strong>Material UI</strong> - Ensures styling consistency across the UI.</li>
+<li><strong>Prisma</strong> - ORM for database interactions.</li>
+</ul>
+<h2 id="configuration-files">Configuration Files</h2>
+<ul>
+<li><strong><code>next.config.mjs</code></strong> - Default Next.js configuration (currently minimal but can be extended).</li>
+<li><strong><code>tsconfig.json</code></strong> - TypeScript settings, including module resolution and path aliases.</li>
+<li><strong><code>.eslintrc.json</code></strong> - ESLint configurations for code linting.</li>
+</ul>
+<h2 id="available-scripts">Available Scripts</h2>
+<p>In the project directory, you can run:</p>
+<ul>
+<li><strong><code>npm run dev</code></strong> - Runs the development server.</li>
+<li><strong><code>npm run build</code></strong> - Builds the project for production.</li>
+<li><strong><code>npm run start</code></strong> - Starts the production server.</li>
+<li><strong><code>npm run lint</code></strong> - Runs ESLint for code quality checks.</li>
+</ul>
+<h2 id="the-eye-layout-appthe-eyelayouttsx">The Eye Layout (<code>app/the-eye/layout.tsx</code>)</h2>
+<ul>
+<li><strong>Purpose</strong>: Provides structure for authenticated pages, including:</li>
+<li>A <strong>desktop sidebar</strong></li>
+<li>A <strong>mobile navigation bar</strong></li>
+<li>A <strong>top bar</strong></li>
+<li><strong>Main Components</strong>:</li>
+<li><code>UI_Layout</code>: Handles sidebar and navigation elements.</li>
+<li><code>Toolbar</code>: Adds spacing below the top bar.</li>
+<li><code>Box</code>: Manages page layout with dynamic width adjustments.</li>
+</ul>
+<h2 id="conference-page-appthe-eyepagetsx">Conference Page (<code>app/the-eye/page.tsx</code>)</h2>
+<ul>
+<li><strong>Purpose</strong>: Displays conferences and teams, allowing users to browse baseball data.</li>
+<li><strong>Database Query</strong>: Uses Prisma to fetch conference and team details.</li>
+<li><strong>Main Components</strong>:</li>
+<li><code>Grid</code>: Structures the page layout.</li>
+<li><code>Typography</code>: Displays the "Conferences" heading.</li>
+<li><code>ConferenceTable</code>: Renders tables for each conference and its teams.</li>
+<li><strong>Query Behavior</strong>:<ul>
+<li>Retrieves all conferences and their associated teams.</li>
+<li>Orders teams alphabetically by <code>DisplayName</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="authentication">Authentication</h2>
+<ul>
+<li>Authentication is handled using <strong>Auburn University's authentication service</strong>.</li>
+</ul>
+<h2 id="prisma-database-management">Prisma - Database Management</h2>
+<ul>
+<li><strong>Prisma ORM</strong> is used for querying the database.</li>
+<li>For advanced queries, <strong><code>prisma.$queryRaw</code></strong> is used (necessary for database views and functions).</li>
+</ul>
+<h3 id="managing-prisma-schema">Managing Prisma Schema</h3>
+<ul>
+<li><strong>DO NOT</strong> edit the <code>schema.prisma</code> file directly.</li>
+<li>Instead, modify <strong><code>schema.sql</code></strong> in the database directory.</li>
+<li>After updating the schema, generate a new Prisma client:
+  <code>bash
+  npx prisma generate</code></li>
+</ul>
+<h2 id="handling-postgresql-bigint-issues">Handling PostgreSQL BigInt Issues</h2>
+<ul>
+<li>Some Material UI components do not support <strong>BigInt</strong> values.</li>
+<li>Convert BigInt to Number using:
+  <code>js
+  JSON.parse(JSON.stringify(data, replacer));</code></li>
+<li>The <code>replacer</code> function is located in <strong><code>/app/utils/replacer.ts</code></strong>.</li>
+</ul>
+<h2 id="future-work">Future Work</h2>
+<ul>
+<li>Implement a <strong>Search Bar</strong>.</li>
+<li>Add the ability to <strong>hide Defensive Shift and Heat Map model tabs</strong> for non-pitchers.</li>
+</ul>
+<h2 id="deployment">Deployment</h2>
+<ul>
+<li>This application is deployed via <strong>Vercel</strong>.</li>
+<li>Changes pushed to the main branch will automatically trigger a deployment.</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<ol>
+<li>Fork the repository.</li>
+<li>Create a new branch for your feature or fix.</li>
+<li>Commit your changes and push them.</li>
+<li>Open a pull request for review.</li>
+</ol>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -4,27 +4,27 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>My Docs</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fontawesome.min.css" rel="stylesheet">
-        <link href="css/brands.min.css" rel="stylesheet">
-        <link href="css/solid.min.css" rel="stylesheet">
-        <link href="css/v4-font-face.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Player Page Layout - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">My Docs</a>
+                <a class="navbar-brand" href="..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,16 +35,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="About-SSH/" class="nav-link">About-SSH</a>
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
                             </li>
                             <li class="nav-item">
-                                <a href="App-Folder/" class="nav-link">App-Folder</a>
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
                             </li>
                             <li class="nav-item">
-                                <a href="App-Setup/" class="nav-link">App-Setup</a>
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
                             </li>
                             <li class="nav-item">
-                                <a href="CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
                             </li>
                         </ul>
 
@@ -72,13 +72,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#welcome-to-mkdocs" class="nav-link">Welcome to MkDocs</a>
+            <li class="nav-item" data-bs-level="1"><a href="#player-page-layout" class="nav-link">Player Page Layout</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#commands" class="nav-link">Commands</a>
+            <li class="nav-item" data-bs-level="2"><a href="#structure" class="nav-link">Structure</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#project-layout" class="nav-link">Project layout</a>
+            <li class="nav-item" data-bs-level="2"><a href="#layouttsx-overview" class="nav-link">layout.tsx Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#how-it-works" class="nav-link">How It Works</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#example-usage" class="nav-link">Example Usage</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -89,21 +97,49 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="player-page-layout">Player Page Layout</h1>
+<p>This folder contains all the player-specific models and data visualizations for a given player within a team.</p>
+<h2 id="structure">Structure</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong><code>heatMap/</code></strong> - Displays a player's heat maps based on pitch data.</li>
+<li><strong><code>runValue/</code></strong> - Shows the player's run value model against different opponents.</li>
+<li><strong><code>shiftModel/</code></strong> - Provides defensive shift models based on pitch tendencies.</li>
+<li><strong><code>stats/</code></strong> - Displays statistical breakdowns for a player over a selected date range.</li>
+<li><strong><code>layout.tsx</code></strong> - Defines the layout for all player-related pages.</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<h2 id="layouttsx-overview"><code>layout.tsx</code> Overview</h2>
+<p>This file serves as the layout for <strong>all player pages</strong>, ensuring a consistent structure across different visualizations and stat models. It fetches <strong>player details from the database</strong>, displays player information, and renders navigation tabs for switching between different models.</p>
+<h3 id="key-functionalities">Key Functionalities</h3>
+<ol>
+<li><strong>Extracts <code>teamName</code> and <code>playerName</code> from the URL parameters.</strong></li>
+<li><strong>Queries the database</strong> using Prisma to retrieve:</li>
+<li>The player's full name.</li>
+<li>The team’s display name.</li>
+<li><strong>Displays a navigation bar (<code>ModelTabs</code>)</strong> for switching between different data visualizations.</li>
+<li><strong>Renders <code>PlayerInfo</code></strong> to show player details at the top of the page.</li>
+<li><strong>Wraps all child components (<code>children</code>)</strong> to allow each model's respective page to be displayed within the layout.</li>
+</ol>
+<h3 id="key-components-used">Key Components Used</h3>
+<ul>
+<li><strong><code>ModelTabs</code></strong> - Navigation tabs for switching between different player models.</li>
+<li><strong><code>PlayerInfo</code></strong> - Displays the player's name and team information.</li>
+<li><strong><code>Box</code></strong> - Provides structured spacing and padding.</li>
+</ul>
+<h2 id="how-it-works">How It Works</h2>
+<ol>
+<li>Fetches the <strong>player's name and team</strong> using Prisma.</li>
+<li>Displays a <strong>top navigation bar</strong> (<code>ModelTabs</code>) for selecting different data visualizations.</li>
+<li>Shows <strong>player details</strong> (<code>PlayerInfo</code>) at the top of the page.</li>
+<li>Renders <strong>child components</strong> (<code>{children}</code>), allowing specific player models (heat maps, stats, etc.) to load dynamically.</li>
+</ol>
+<h2 id="example-usage">Example Usage</h2>
+<p>This layout automatically wraps all player-related pages when accessed through:</p>
+<pre><code>/the-eye/player/{teamName}/{playerName}/
+</code></pre>
+<p>For example:</p>
+<pre><code>/the-eye/player/AUB_TIG/John_Doe/
+</code></pre>
+<p>This would display <strong>John Doe’s</strong> player page, where users can navigate between different models such as heat maps, stats, and shift models using the <code>ModelTabs</code> navigation.</p></div>
             </div>
         </div>
 
@@ -111,13 +147,13 @@ docs/
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -182,8 +218,3 @@ docs/
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2025-04-30 15:26:46.258854+00:00
--->

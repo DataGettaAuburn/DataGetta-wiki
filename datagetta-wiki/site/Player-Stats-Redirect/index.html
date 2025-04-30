@@ -4,27 +4,27 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>My Docs</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fontawesome.min.css" rel="stylesheet">
-        <link href="css/brands.min.css" rel="stylesheet">
-        <link href="css/solid.min.css" rel="stylesheet">
-        <link href="css/v4-font-face.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Player Stats - Redirect Page - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">My Docs</a>
+                <a class="navbar-brand" href="..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,16 +35,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="About-SSH/" class="nav-link">About-SSH</a>
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
                             </li>
                             <li class="nav-item">
-                                <a href="App-Folder/" class="nav-link">App-Folder</a>
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
                             </li>
                             <li class="nav-item">
-                                <a href="App-Setup/" class="nav-link">App-Setup</a>
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
                             </li>
                             <li class="nav-item">
-                                <a href="CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
                             </li>
                         </ul>
 
@@ -72,13 +72,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#welcome-to-mkdocs" class="nav-link">Welcome to MkDocs</a>
+            <li class="nav-item" data-bs-level="1"><a href="#player-stats-redirect-page" class="nav-link">Player Stats - Redirect Page</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#commands" class="nav-link">Commands</a>
+            <li class="nav-item" data-bs-level="2"><a href="#files" class="nav-link">Files</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#project-layout" class="nav-link">Project layout</a>
+            <li class="nav-item" data-bs-level="2"><a href="#pagetsx-overview" class="nav-link">page.tsx Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#how-it-works" class="nav-link">How It Works</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#example-usage" class="nav-link">Example Usage</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -89,21 +97,45 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="player-stats-redirect-page">Player Stats - Redirect Page</h1>
+<p>This folder contains a <strong>redirect mechanism</strong> to ensure a player's stats page is accessed with the required <code>startDate</code> and <code>endDate</code> parameters.</p>
+<h2 id="files">Files</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong><code>page.tsx</code></strong> - Redirects users to a dynamically generated stats page with a default date range.</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<h2 id="pagetsx-overview"><code>page.tsx</code> Overview</h2>
+<p>This file exists to <strong>redirect users</strong> to a player's stats page with an appropriate time range when the <code>startDate</code> and <code>endDate</code> parameters are missing. Since these dates are required to query the database, this redirect ensures the proper routing without user input.</p>
+<h3 id="key-functionalities">Key Functionalities:</h3>
+<ul>
+<li><strong>Decodes <code>teamName</code> and <code>playerName</code> from the URL parameters.</strong></li>
+<li><strong>Defines a <code>startOfSeason</code> date (February 16, 2024).</strong></li>
+<li><strong>Fetches the current date using <code>dayjs()</code>.</strong></li>
+<li><strong>Constructs a URL with a valid date range and redirects the user permanently.</strong></li>
+</ul>
+<h2 id="how-it-works">How It Works</h2>
+<ol>
+<li>Extracts <strong>team name</strong> and <strong>player name</strong> from the URL parameters.</li>
+<li>Defines a fixed <strong>start-of-season date</strong> (<code>2024-02-16</code>).</li>
+<li>Retrieves the <strong>current date</strong> dynamically.</li>
+<li>Constructs a <strong>permanent redirect URL</strong> in the format:</li>
+</ol>
+<pre><code>/the-eye/player/{teamName}/{playerName}/stats/{startDate}/{endDate}
+</code></pre>
+<ol>
+<li>Uses <code>permanentRedirect()</code> from <code>next/navigation</code> to <strong>automatically reroute</strong> users to the correct stats page.</li>
+</ol>
+<h2 id="example-usage">Example Usage</h2>
+<p>This page is accessed dynamically through the app's routing system:</p>
+<pre><code>/the-eye/player/{teamName}/{playerName}/stats
+</code></pre>
+<p>For example:</p>
+<pre><code>/the-eye/player/AUB_TIG/John_Doe/stats
+</code></pre>
+<p>This would <strong>automatically redirect</strong> the user to:</p>
+<pre><code>/the-eye/player/AUB_TIG/John_Doe/stats/2024-02-16/2024-04-25
+</code></pre>
+<p>Where <code>2024-02-16</code> is the <strong>start of the season</strong>, and <code>2024-04-25</code> is the <strong>current date</strong>.</p>
+<p>This ensures proper functionality when accessing player stats without requiring the user to manually enter date parameters.</p></div>
             </div>
         </div>
 
@@ -111,13 +143,13 @@ docs/
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -182,8 +214,3 @@ docs/
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2025-04-30 15:26:46.258854+00:00
--->

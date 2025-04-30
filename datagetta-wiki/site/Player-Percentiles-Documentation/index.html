@@ -4,27 +4,27 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>My Docs</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fontawesome.min.css" rel="stylesheet">
-        <link href="css/brands.min.css" rel="stylesheet">
-        <link href="css/solid.min.css" rel="stylesheet">
-        <link href="css/v4-font-face.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Player Percentiles Documentation - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">My Docs</a>
+                <a class="navbar-brand" href="..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,16 +35,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="About-SSH/" class="nav-link">About-SSH</a>
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
                             </li>
                             <li class="nav-item">
-                                <a href="App-Folder/" class="nav-link">App-Folder</a>
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
                             </li>
                             <li class="nav-item">
-                                <a href="App-Setup/" class="nav-link">App-Setup</a>
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
                             </li>
                             <li class="nav-item">
-                                <a href="CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
                             </li>
                         </ul>
 
@@ -72,16 +72,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#welcome-to-mkdocs" class="nav-link">Welcome to MkDocs</a>
+            <li class="nav-item" data-bs-level="2"><a href="#player-percentiles-page-documentation" class="nav-link">📊 Player Percentiles Page – Documentation</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#commands" class="nav-link">Commands</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#project-layout" class="nav-link">Project layout</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -89,21 +81,62 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h2 id="player-percentiles-page-documentation">📊 Player Percentiles Page – Documentation</h2>
+<p><strong>Author:</strong> Liam Maher<br />
+<strong>Last Modified:</strong> 05/11/2025</p>
+<hr />
+<h3 id="overview">🔍 Overview</h3>
+<p>The <strong>Percentiles Page</strong> displays statistical performance percentiles for individual pitchers based on <strong>pitch type</strong> and <strong>season year</strong> (currently 2024 and 2025). It dynamically pulls data from PostgreSQL views and presents the results visually using Material UI progress bars.</p>
+<p>This page is designed to support <strong>interactive filtering</strong> via a dropdown menu and dynamically swaps between <code>pitcher_percentiles_by_pitchtype_2024</code> and <code>pitcher_percentiles_by_pitchtype_2025</code>.</p>
+<hr />
+<h3 id="core-components">⚙️ Core Components</h3>
+<h4 id="createplayerpercenttsx">✅ <code>CreatePlayerPercent.tsx</code></h4>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>Server component that:</li>
+<li>Accepts <code>playerName</code>, <code>pitchType</code>, and <code>year</code> as props.</li>
+<li>Dynamically selects the correct SQL view:
+    <code>ts
+    const viewName = `pitcher_percentiles_by_pitchtype_${year}`;</code></li>
+<li>Fetches data with parameterized queries using Prisma.</li>
+<li>Validates <code>year</code> to prevent injection or invalid data access.</li>
+<li>Renders a styled progress bar chart for each stat.</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<h4 id="filterdropdownstsx">✅ <code>FilterDropdowns.tsx</code></h4>
+<ul>
+<li>Client-side dropdown component for:</li>
+<li>Pitch type (<code>Fastball</code>, <code>Slider</code>, etc.)</li>
+<li>Year (<code>2024</code>, <code>2025</code>)</li>
+<li>Syncs selection to URL query parameters using <code>useRouter()</code> and <code>useSearchParams()</code>.</li>
+</ul>
+<h4 id="pagetsx">✅ <code>page.tsx</code></h4>
+<ul>
+<li>Reads search parameters and passes them as props.</li>
+<li>Displays both the dropdowns and the stat bar chart.</li>
+</ul>
+<h4 id="layouttsx">✅ <code>layout.tsx</code></h4>
+<ul>
+<li>Applies page padding and MUI theming layout across the player profile view.</li>
+</ul>
+<hr />
+<h3 id="season-specific-views-2024-and-2025">📆 Season-Specific Views (2024 and 2025)</h3>
+<p>Currently, PostgreSQL views such as <code>pitcher_percentiles_by_pitchtype_2024</code> and <code>pitcher_percentiles_by_pitchtype_2025</code> are created <strong>manually</strong> each season.</p>
+<p>Each view:
+- Filters all data to just that season (using <code>seasons</code> table join on <code>SeasonTitle</code>)
+- Computes:
+  - <code>FIP</code>
+  - <code>K %</code>
+  - <code>BB %</code>
+  - <code>Chase %</code>
+  - <code>Velocity %</code>
+  - <code>Induced Vertical Break</code>
+  - <code>Horizontal Break</code>
+- Groups by both <strong>pitcher</strong> and <strong>pitch type</strong>
+- Applies <code>PERCENT_RANK()</code> to calculate percentile for each metric</p>
+<h4 id="future-suggestion-automate-view-generation">🔮 Future Suggestion: Automate View Generation</h4>
+<p>To reduce maintenance effort:
+- Consider creating a <strong>parameterized materialized view</strong> or
+- Build a <strong>season-agnostic view</strong> that includes a <code>year</code> column and filters in the app layer</p>
+<hr /></div>
             </div>
         </div>
 
@@ -111,13 +144,13 @@ docs/
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -182,8 +215,3 @@ docs/
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2025-04-30 15:26:46.258854+00:00
--->

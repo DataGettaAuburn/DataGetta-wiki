@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Database Update Instructions - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#database-update-instructions" class="nav-link">Database Update Instructions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#steps-to-update-the-database" class="nav-link">Steps to Update the Database</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="database-update-instructions">Database Update Instructions</h1>
+<p>This document provides step-by-step instructions on how to update the database using <strong>pgAdmin</strong> or any other SQL query tool. Follow the steps below to execute the provided SQL queries.</p>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before proceeding, ensure you have the following:
+1. Access to the database via <strong>pgAdmin</strong> or another SQL query tool.
+2. Necessary permissions to execute <code>UPDATE</code>, <code>INSERT</code>, or <code>DELETE</code> queries.
+3. A backup of the database (recommended before making changes).</p>
+<hr />
+<h2 id="steps-to-update-the-database">Steps to Update the Database</h2>
+<h3 id="1-connect-to-the-database">1. Connect to the Database</h3>
+<ul>
+<li>Open <strong>pgAdmin</strong> or your preferred SQL query tool.</li>
+<li>Connect to the target database using your credentials.</li>
+</ul>
+<h3 id="2-open-the-query-tool">2. Open the Query Tool</h3>
+<ul>
+<li>Navigate to the database you want to update.</li>
+<li>Open the <strong>Query Tool</strong> (in pgAdmin, right-click the database and select <strong>Query Tool</strong>).</li>
+</ul>
+<h3 id="3-execute-the-sql-queries">3. Execute the SQL Queries</h3>
+<p>Copy and paste the following 4 SQL queries into the query tool and execute them one at a time.</p>
+<h4 id="query-1-update-batter-view">Query 1: Update batter view</h4>
+<pre><code class="language-sql">drop view if exists batter_stats_view_2024;
+create or replace view batter_stats_view_2024 as
+with at_bats_subquery as (
+    with hits_subquery as (
+        select &quot;Batter&quot;, &quot;BatterTeam&quot;,
+                COUNT(*) filter (where &quot;PlayResult&quot; = 'Single'
+                                or &quot;PlayResult&quot; = 'Double'
+                                or &quot;PlayResult&quot; = 'Triple'
+                                or &quot;PlayResult&quot; = 'HomeRun'
+                ) as hits,
+                COUNT(*) filter (where &quot;PlayResult&quot; = 'Error'
+                                or &quot;PlayResult&quot; = 'Out'
+                                or &quot;PlayResult&quot; = 'FieldersChoice'
+                                or &quot;KorBB&quot; = 'Strikeout'
+                                or &quot;PlayResult&quot; = 'Single'
+                                or &quot;PlayResult&quot; = 'Double'
+                                or &quot;PlayResult&quot; = 'Triple'
+                                or &quot;PlayResult&quot; = 'HomeRun'
+                                ) as at_bats,
+                COUNT(*) filter (where &quot;PlateLocHeight&quot; &gt; 3.55
+                                or &quot;PlateLocHeight&quot; &lt; 1.77
+                                or &quot;PlateLocSide&quot; &gt; 0.86
+                                or &quot;PlateLocSide&quot; &lt; -0.86
+                                ) as total_out_of_zone_pitches,
+                COUNT(*) filter (where &quot;PlateLocHeight&quot; &lt; 3.55
+                                and &quot;PlateLocHeight&quot; &gt; 1.77
+                                and &quot;PlateLocSide&quot; &lt; 0.86
+                                and &quot;PlateLocSide&quot; &gt; -0.86
+                                ) as total_in_zone_pitches
+        from trackman_metadata tm, trackman_batter tb, trackman_pitcher tp, seasons s
+        where tm.&quot;PitchUID&quot; = tb.&quot;PitchUID&quot; and tb.&quot;PitchUID&quot; = tp.&quot;PitchUID&quot; and s.&quot;SeasonTitle&quot; = '2024' and tm.&quot;UTCDate&quot; &gt;= s.&quot;StartDate&quot; and tm.&quot;UTCDate&quot; &lt;= s.&quot;EndDate&quot;
+        group by (&quot;Batter&quot;, &quot;BatterTeam&quot;)
+    )
+    select 
+        tb.&quot;Batter&quot; as &quot;Batter&quot;,
+        tb.&quot;BatterTeam&quot; as &quot;BatterTeam&quot;,
+        hs.&quot;hits&quot; as &quot;hits&quot;,
+        hs.&quot;at_bats&quot; as &quot;at_bats&quot;,
+        COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeCalled'
+                        or &quot;PitchCall&quot; = 'StrikeSwinging'
+                        or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                        ) as strikes,
+        COUNT(*) filter (where &quot;KorBB&quot; = 'Walk') as walks,
+        COUNT(*) filter (where &quot;KorBB&quot; = 'Strikeout') as strikeouts,
+        COUNT(*) filter (where &quot;PlayResult&quot; = 'HomeRun') as homeruns,
+        COUNT(*) filter (where &quot;PlayResult&quot; = 'Double'
+                        or &quot;PlayResult&quot; = 'Triple'
+                        or &quot;PlayResult&quot; = 'HomeRun'
+                        ) as extra_base_hits,
+        COUNT(*) filter (where &quot;KorBB&quot; = 'Walk'
+                        or &quot;PitchCall&quot; = 'InPlay'
+                        or &quot;PitchCall&quot; = 'HitByPitch'
+                        or &quot;KorBB&quot; = 'Strikeout'
+                        ) as plate_appearances,
+        COUNT(*) filter (where &quot;PitchCall&quot; = 'HitByPitch') as hit_by_pitch,
+        COUNT(*) filter (where &quot;PlayResult&quot; = 'Sacrifice') as sacrifice,
+        SUM(case
+            when &quot;PlayResult&quot; = 'Single' then 1
+            when &quot;PlayResult&quot; = 'Double' then 2
+            when &quot;PlayResult&quot; = 'Triple' then 3
+            when &quot;PlayResult&quot; = 'HomeRun' then 4
+            else 0
+            end) as total_bases,
+        case when at_bats = 0 then null
+            else (hits + COUNT(*) filter (where &quot;KorBB&quot; = 'Walk'
+                                    or &quot;PitchCall&quot; = 'HitByPitch'))::decimal
+            / (COUNT(*) filter (where &quot;PlayResult&quot; = 'Error'
+                                or &quot;PlayResult&quot; = 'Out'
+                                or &quot;PlayResult&quot; = 'FieldersChoice'
+                                or &quot;KorBB&quot; = 'Strikeout'
+                                ) + hits 
+                                + COUNT(*) filter (where &quot;KorBB&quot; = 'Walk'
+                                                    or &quot;PitchCall&quot; = 'HitByPitch')
+                                + COUNT(*) filter (where &quot;PlayResult&quot; = 'Sacrifice' 
+                                                    and &quot;TaggedHitType&quot; = 'FlyBall')) 
+        end as on_base_percentage,
+        case when at_bats = 0 then null
+            else 
+            SUM(case
+            when &quot;PlayResult&quot; = 'Single' then 1
+            when &quot;PlayResult&quot; = 'Double' then 2
+            when &quot;PlayResult&quot; = 'Triple' then 3
+            when &quot;PlayResult&quot; = 'HomeRun' then 4
+            else 0
+            end)::decimal / at_bats 
+        end as slugging_percentage,
+        case when total_out_of_zone_pitches = 0 then null
+            else COUNT(*) filter (where (&quot;PitchCall&quot; = 'StrikeSwinging'
+                                or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                                or &quot;PitchCall&quot; = 'InPlay')
+                                and (&quot;PlateLocHeight&quot; &gt; 3.55
+                                or &quot;PlateLocHeight&quot; &lt; 1.77
+                                or &quot;PlateLocSide&quot; &gt; 0.86
+                                or &quot;PlateLocSide&quot; &lt; -0.86)
+                                )::decimal / total_out_of_zone_pitches
+        end as chase_percentage,
+        case when total_in_zone_pitches = 0 then null
+            else COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'
+                                and &quot;PlateLocHeight&quot; &lt; 3.55
+                                and &quot;PlateLocHeight&quot; &gt; 1.77
+                                and &quot;PlateLocSide&quot; &lt; 0.86
+                                and &quot;PlateLocSide&quot; &gt; -0.86
+                                )::decimal / total_in_zone_pitches
+        end as in_zone_whiff_percentage,
+        COUNT(distinct &quot;GameUID&quot;) as games
+    from  hits_subquery hs, trackman_batter tb, trackman_metadata tm, trackman_pitcher tp, seasons s
+    where hs.&quot;Batter&quot; = tb.&quot;Batter&quot; and hs.&quot;BatterTeam&quot; = tb.&quot;BatterTeam&quot; and tb.&quot;PitchUID&quot; = tm.&quot;PitchUID&quot; and tm.&quot;PitchUID&quot; = tp.&quot;PitchUID&quot; and s.&quot;SeasonTitle&quot; = '2024' and tm.&quot;UTCDate&quot; &gt;= s.&quot;StartDate&quot; and tm.&quot;UTCDate&quot; &lt;= s.&quot;EndDate&quot;
+    group by (tb.&quot;Batter&quot;, tb.&quot;BatterTeam&quot;, hs.&quot;hits&quot;, hs.&quot;at_bats&quot;, hs.&quot;total_out_of_zone_pitches&quot;, hs.&quot;total_in_zone_pitches&quot;)
+)
+select 
+        *,
+        case
+            when at_bats = 0 then null
+            else hits::decimal / at_bats
+        end as batting_average,
+        on_base_percentage + slugging_percentage as onbase_plus_slugging,
+        slugging_percentage - case
+            when at_bats = 0 then null
+            else hits::decimal / at_bats
+        end as isolated_power,
+        case
+            when plate_appearances = 0 then null
+            else strikeouts::decimal / plate_appearances
+        end as k_percentage,
+        case
+            when plate_appearances = 0 then null
+            else walks::decimal / plate_appearances
+        end as base_on_ball_percentage
+from at_bats_subquery;
+</code></pre>
+<h3 id="query-2-update-pitcher-view">Query 2: Update pitcher view</h3>
+<pre><code class="language-sql">drop view if exists pitcher_stats_view_2024;
+create or replace view pitcher_stats_view_2024 as
+with pitcher_stats_subquery as (
+    with pitcher_stats_subquery_two as (
+        select tp2.&quot;Pitcher&quot; as &quot;Pitcher&quot;, tp2.&quot;PitcherTeam&quot; as &quot;PitcherTeam&quot;,
+        COUNT(*) filter (where &quot;PlateLocHeight&quot; &gt; 3.55
+                                or &quot;PlateLocHeight&quot; &lt; 1.77
+                                or &quot;PlateLocSide&quot; &gt; 0.86
+                                or &quot;PlateLocSide&quot; &lt; -0.86
+                                ) as total_out_of_zone_pitches,
+        COUNT(*) filter (where &quot;PlateLocHeight&quot; &lt; 3.55
+                                and &quot;PlateLocHeight&quot; &gt; 1.77
+                                and &quot;PlateLocSide&quot; &lt; 0.86
+                                and &quot;PlateLocSide&quot; &gt; -0.86
+                                ) as total_in_zone_pitches
+        from trackman_batter tb2, trackman_metadata tm2, trackman_pitcher tp2, seasons s2
+        where tb2.&quot;PitchUID&quot; = tm2.&quot;PitchUID&quot; and tm2.&quot;PitchUID&quot; = tp2.&quot;PitchUID&quot; and s2.&quot;SeasonTitle&quot; = '2024' and tm2.&quot;UTCDate&quot; &gt;= s2.&quot;StartDate&quot; and tm2.&quot;UTCDate&quot; &lt;= s2.&quot;EndDate&quot;
+        group by (tp2.&quot;Pitcher&quot;, tp2.&quot;PitcherTeam&quot;)
+    )
+    select pss.&quot;Pitcher&quot; as &quot;Pitcher&quot;, pss.&quot;PitcherTeam&quot; as &quot;PitcherTeam&quot;,
+        COUNT(*) filter (where &quot;KorBB&quot; = 'Strikeout') as total_strikeouts_pitcher,
+        COUNT(*) filter (where &quot;KorBB&quot; = 'Walk') as total_walks_pitcher,
+        COUNT(*) filter (where &quot;PlateLocHeight&quot; &gt; 3.55
+                            or &quot;PlateLocHeight&quot; &lt; 1.77
+                            or &quot;PlateLocSide&quot; &gt; 0.86
+                            or &quot;PlateLocSide&quot; &lt; -0.86
+                            ) as total_out_of_zone_pitches,
+        COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'
+                        and &quot;PlateLocHeight&quot; &lt; 3.55
+                        and &quot;PlateLocHeight&quot; &gt; 1.77
+                        and &quot;PlateLocSide&quot; &lt; 0.86
+                        and &quot;PlateLocSide&quot; &gt; -0.86
+                        ) as misses_in_zone,
+        COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'  
+                        or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                        or &quot;PitchCall&quot; = 'InPlay'
+                        and &quot;PlateLocHeight&quot; &lt; 3.55
+                        and &quot;PlateLocHeight&quot; &gt; 1.77
+                        and &quot;PlateLocSide&quot; &lt; 0.86
+                        and &quot;PlateLocSide&quot; &gt; -0.86
+                        ) as swings_in_zone,
+        COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'  
+                        or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                        and &quot;PlateLocHeight&quot; &gt; 3.55
+                        and &quot;PlateLocHeight&quot; &lt; 1.77
+                        and &quot;PlateLocSide&quot; &gt; 0.86
+                        and &quot;PlateLocSide&quot; &lt; -0.86
+                        ) as total_num_chases,
+        COUNT(*) as pitches,
+        COUNT(distinct &quot;GameUID&quot;) as games,
+        COUNT(*) filter (where &quot;Inning&quot; = 1
+                        and &quot;Outs&quot; = 0
+                        and &quot;Balls&quot; = 0
+                        and &quot;Strikes&quot; = 0
+                        and &quot;PAofInning&quot; = 1
+                        ) as games_started,
+        ROUND(((COUNT(*) filter (where &quot;KorBB&quot; = 'StrikeOut') + 
+        SUM(&quot;OutsOnPlay&quot;::integer)) / 3) +
+        (((COUNT(*) filter (where &quot;KorBB&quot; = 'StrikeOut') + 
+        SUM(&quot;OutsOnPlay&quot;::integer)) % 3)::decimal / 10), 1) as total_innings_pitched,
+        COUNT(distinct (&quot;PAofInning&quot;, &quot;Inning&quot;, &quot;Batter&quot;, &quot;GameUID&quot;)) as total_batters_faced,
+        case when total_in_zone_pitches = 0 then null
+            else COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'
+                                and &quot;PlateLocHeight&quot; &lt; 3.55
+                                and &quot;PlateLocHeight&quot; &gt; 1.77
+                                and &quot;PlateLocSide&quot; &lt; 0.86
+                                and &quot;PlateLocSide&quot; &gt; -0.86
+                                )::decimal / total_in_zone_pitches
+        end as in_zone_whiff_percentage,
+        case when total_out_of_zone_pitches = 0 then null
+            else COUNT(*) filter (where (&quot;PitchCall&quot; = 'StrikeSwinging'
+                                or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                                or &quot;PitchCall&quot; = 'InPlay')
+                                and (&quot;PlateLocHeight&quot; &gt; 3.55
+                                or &quot;PlateLocHeight&quot; &lt; 1.77
+                                or &quot;PlateLocSide&quot; &gt; 0.86
+                                or &quot;PlateLocSide&quot; &lt; -0.86)
+                                )::decimal / total_out_of_zone_pitches
+        end as chase_percentage
+    from pitcher_stats_subquery_two pss, trackman_metadata tm, trackman_pitcher tp, trackman_batter tb, seasons s
+    where pss.&quot;Pitcher&quot; = tp.&quot;Pitcher&quot; and pss.&quot;PitcherTeam&quot; = tp.&quot;PitcherTeam&quot; and tm.&quot;PitchUID&quot; = tp.&quot;PitchUID&quot; and tm.&quot;PitchUID&quot; = tb.&quot;PitchUID&quot; and s.&quot;SeasonTitle&quot; = '2024' and tm.&quot;UTCDate&quot; &gt;= s.&quot;StartDate&quot; and tm.&quot;UTCDate&quot; &lt;= s.&quot;EndDate&quot;
+    group by (pss.&quot;Pitcher&quot;, pss.&quot;PitcherTeam&quot;, pss.&quot;total_out_of_zone_pitches&quot;, pss.&quot;total_in_zone_pitches&quot;)
+)
+select 
+    *,
+    case
+        when total_batters_faced = 0 then null
+        else total_strikeouts_pitcher::decimal / total_batters_faced
+    end as k_percentage,
+    case
+        when total_batters_faced = 0 then null
+        else total_walks_pitcher::decimal / total_batters_faced
+    end as base_on_ball_percentage
+from pitcher_stats_subquery;
+</code></pre>
+<h3 id="query-3-update-batter-functions">Query 3: Update batter functions</h3>
+<pre><code class="language-sql">drop function if exists get_batter_stats;
+create or replace function get_batter_stats(batter_name text, batter_team text, start_date date, end_date date)
+returns table(&quot;Batter&quot; varchar, &quot;BatterTeam&quot; varchar, &quot;hits&quot; bigint, &quot;at_bats&quot; bigint, &quot;strikes&quot; bigint, &quot;walks&quot; bigint, &quot;strikeouts&quot; bigint, &quot;homeruns&quot; bigint, &quot;extra_base_hits&quot; bigint, &quot;plate_appearances&quot; bigint, &quot;hit_by_pitch&quot; bigint, &quot;sacrifice&quot; bigint, &quot;total_bases&quot; bigint, &quot;on_base_percentage&quot; decimal, &quot;slugging_percentage&quot; decimal, &quot;chase_percentage&quot; decimal, &quot;in_zone_whiff_percentage&quot; decimal, &quot;games&quot; bigint, &quot;batting_average&quot; decimal, &quot;onbase_plus_slugging&quot; decimal, &quot;isolated_power&quot; decimal, &quot;k_percentage&quot; decimal, &quot;base_on_ball_percentage&quot; decimal)
+as $$
+begin 
+    return query
+    with at_bats_subquery as (
+        with hits_subquery as (
+            select tb.&quot;Batter&quot;, tb.&quot;BatterTeam&quot;,
+                    COUNT(*) filter (where &quot;PlayResult&quot; = 'Single'
+                                    or &quot;PlayResult&quot; = 'Double'
+                                    or &quot;PlayResult&quot; = 'Triple'
+                                    or &quot;PlayResult&quot; = 'HomeRun'
+                    ) as hits,
+                    COUNT(*) filter (where &quot;PlayResult&quot; = 'Error'
+                                    or &quot;PlayResult&quot; = 'Out'
+                                    or &quot;PlayResult&quot; = 'FieldersChoice'
+                                    or &quot;KorBB&quot; = 'Strikeout'
+                                    or &quot;PlayResult&quot; = 'Single'
+                                    or &quot;PlayResult&quot; = 'Double'
+                                    or &quot;PlayResult&quot; = 'Triple'
+                                    or &quot;PlayResult&quot; = 'HomeRun'
+                                    ) as at_bats,
+                    COUNT(*) filter (where &quot;PlateLocHeight&quot; &gt; 3.55
+                                    or &quot;PlateLocHeight&quot; &lt; 1.77
+                                    or &quot;PlateLocSide&quot; &gt; 0.86
+                                    or &quot;PlateLocSide&quot; &lt; -0.86
+                                    ) as total_out_of_zone_pitches,
+                    COUNT(*) filter (where &quot;PlateLocHeight&quot; &lt; 3.55
+                                    and &quot;PlateLocHeight&quot; &gt; 1.77
+                                    and &quot;PlateLocSide&quot; &lt; 0.86
+                                    and &quot;PlateLocSide&quot; &gt; -0.86
+                                    ) as total_in_zone_pitches
+            from trackman_metadata tm, trackman_batter tb, trackman_pitcher tp
+            where tm.&quot;PitchUID&quot; = tb.&quot;PitchUID&quot; and tb.&quot;PitchUID&quot; = tp.&quot;PitchUID&quot; and tm.&quot;UTCDate&quot; &gt;= start_date and tm.&quot;UTCDate&quot; &lt;= end_date and tb.&quot;Batter&quot; = batter_name and tb.&quot;BatterTeam&quot; = batter_team
+            group by (tb.&quot;Batter&quot;, tb.&quot;BatterTeam&quot;)
+        )
+        select 
+            tb.&quot;Batter&quot; as &quot;Batter&quot;,
+            tb.&quot;BatterTeam&quot; as &quot;BatterTeam&quot;,
+            hs.&quot;hits&quot; as &quot;hits&quot;,
+            hs.&quot;at_bats&quot; as &quot;at_bats&quot;,
+            COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeCalled'
+                            or &quot;PitchCall&quot; = 'StrikeSwinging'
+                            or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                            ) as strikes,
+            COUNT(*) filter (where &quot;KorBB&quot; = 'Walk') as walks,
+            COUNT(*) filter (where &quot;KorBB&quot; = 'Strikeout') as strikeouts,
+            COUNT(*) filter (where &quot;PlayResult&quot; = 'HomeRun') as homeruns,
+            COUNT(*) filter (where &quot;PlayResult&quot; = 'Double'
+                            or &quot;PlayResult&quot; = 'Triple'
+                            or &quot;PlayResult&quot; = 'HomeRun'
+                            ) as extra_base_hits,
+            COUNT(*) filter (where &quot;KorBB&quot; = 'Walk'
+                            or &quot;PitchCall&quot; = 'InPlay'
+                            or &quot;PitchCall&quot; = 'HitByPitch'
+                            or &quot;KorBB&quot; = 'Strikeout'
+                            ) as plate_appearances,
+            COUNT(*) filter (where &quot;PitchCall&quot; = 'HitByPitch') as hit_by_pitch,
+            COUNT(*) filter (where &quot;PlayResult&quot; = 'Sacrifice') as sacrifice,
+            SUM(case
+                when &quot;PlayResult&quot; = 'Single' then 1
+                when &quot;PlayResult&quot; = 'Double' then 2
+                when &quot;PlayResult&quot; = 'Triple' then 3
+                when &quot;PlayResult&quot; = 'HomeRun' then 4
+                else 0
+                end) as total_bases,
+            case when hs.&quot;at_bats&quot; = 0 then null
+                else (hs.&quot;hits&quot; + COUNT(*) filter (where &quot;KorBB&quot; = 'Walk'
+                                        or &quot;PitchCall&quot; = 'HitByPitch'))::decimal
+                / (COUNT(*) filter (where &quot;PlayResult&quot; = 'Error'
+                                    or &quot;PlayResult&quot; = 'Out'
+                                    or &quot;PlayResult&quot; = 'FieldersChoice'
+                                    or &quot;KorBB&quot; = 'Strikeout'
+                                    ) + hs.&quot;hits&quot; 
+                                    + COUNT(*) filter (where &quot;KorBB&quot; = 'Walk'
+                                                        or &quot;PitchCall&quot; = 'HitByPitch')
+                                    + COUNT(*) filter (where &quot;PlayResult&quot; = 'Sacrifice' 
+                                                        and &quot;TaggedHitType&quot; = 'FlyBall')) 
+            end as on_base_percentage,
+            case when hs.&quot;at_bats&quot; = 0 then null
+                else 
+                SUM(case
+                when &quot;PlayResult&quot; = 'Single' then 1
+                when &quot;PlayResult&quot; = 'Double' then 2
+                when &quot;PlayResult&quot; = 'Triple' then 3
+                when &quot;PlayResult&quot; = 'HomeRun' then 4
+                else 0
+                end)::decimal / hs.&quot;at_bats&quot; 
+            end as slugging_percentage,
+            case when hs.&quot;total_out_of_zone_pitches&quot; = 0 then null
+                else COUNT(*) filter (where (&quot;PitchCall&quot; = 'StrikeSwinging'
+                                or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                                or &quot;PitchCall&quot; = 'InPlay')
+                                and (&quot;PlateLocHeight&quot; &gt; 3.55
+                                or &quot;PlateLocHeight&quot; &lt; 1.77
+                                or &quot;PlateLocSide&quot; &gt; 0.86
+                                or &quot;PlateLocSide&quot; &lt; -0.86)
+                                )::decimal / hs.&quot;total_out_of_zone_pitches&quot;
+            end as chase_percentage,
+            case when hs.&quot;total_in_zone_pitches&quot; = 0 then null
+                else COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'
+                                    and &quot;PlateLocHeight&quot; &lt; 3.55
+                                    and &quot;PlateLocHeight&quot; &gt; 1.77
+                                    and &quot;PlateLocSide&quot; &lt; 0.86
+                                    and &quot;PlateLocSide&quot; &gt; -0.86
+                                    )::decimal / hs.&quot;total_in_zone_pitches&quot;
+            end as in_zone_whiff_percentage,
+            COUNT(distinct &quot;GameUID&quot;) as games
+        from  hits_subquery hs, trackman_batter tb, trackman_metadata tm, trackman_pitcher tp
+        where hs.&quot;Batter&quot; = tb.&quot;Batter&quot; and hs.&quot;BatterTeam&quot; = tb.&quot;BatterTeam&quot; and tb.&quot;PitchUID&quot; = tm.&quot;PitchUID&quot; and tm.&quot;PitchUID&quot; = tp.&quot;PitchUID&quot; and tm.&quot;UTCDate&quot; &gt;= start_date and tm.&quot;UTCDate&quot; &lt;= end_date and tb.&quot;Batter&quot; = batter_name and tb.&quot;BatterTeam&quot; = batter_team
+        group by (tb.&quot;Batter&quot;, tb.&quot;BatterTeam&quot;, hs.&quot;hits&quot;, hs.&quot;at_bats&quot;, hs.&quot;total_out_of_zone_pitches&quot;, hs.&quot;total_in_zone_pitches&quot;)
+    )
+    select 
+            *,
+            case
+                when abs.&quot;at_bats&quot; = 0 then null
+                else abs.&quot;hits&quot;::decimal / abs.&quot;at_bats&quot;
+            end as batting_average,
+            abs.&quot;on_base_percentage&quot; + abs.&quot;slugging_percentage&quot; as onbase_plus_slugging,
+            abs.&quot;slugging_percentage&quot; - case
+                when abs.&quot;at_bats&quot; = 0 then null
+                else abs.&quot;hits&quot;::decimal / abs.&quot;at_bats&quot;
+            end as isolated_power,
+            case
+                when abs.&quot;plate_appearances&quot; = 0 then null
+                else abs.&quot;strikeouts&quot;::decimal / abs.&quot;plate_appearances&quot;
+            end as k_percentage,
+            case
+                when abs.&quot;plate_appearances&quot; = 0 then null
+                else abs.&quot;walks&quot;::decimal / abs.&quot;plate_appearances&quot;
+            end as base_on_ball_percentage
+    from at_bats_subquery abs;
+end;
+$$ language plpgsql;
+</code></pre>
+<h3 id="query-4-update-pitcher-functions">Query 4: Update pitcher functions</h3>
+<pre><code class="language-sql">drop function if exists get_pitcher_stats;
+create or replace function get_pitcher_stats(pitcher_name text, pitcher_team text, start_date date, end_date date)
+returns table(&quot;Pitcher&quot; varchar, &quot;PitcherTeam&quot; varchar, &quot;total_strikeouts_pitcher&quot; bigint, &quot;total_walks_pitcher&quot; bigint, &quot;total_out_of_zone_pitches&quot; bigint, &quot;misses_in_zone&quot; bigint, &quot;swings_in_zone&quot; bigint, &quot;total_num_chases&quot; bigint, &quot;pitches&quot; bigint, &quot;games&quot; bigint, &quot;games_started&quot; bigint, &quot;total_innings_pitched&quot; decimal, &quot;total_batters_faced&quot; bigint, &quot;in_zone_whiff_percentage&quot; decimal, &quot;chase_percentage&quot; decimal, &quot;k_percentage&quot; decimal, &quot;base_on_ball_percentage&quot; decimal)
+as $$
+    begin
+    return query
+    with pitcher_stats_subquery as (
+    with pitcher_stats_subquery_two as (
+        select tp.&quot;Pitcher&quot; as &quot;Pitcher&quot;, tp.&quot;PitcherTeam&quot; as &quot;PitcherTeam&quot;,
+        COUNT(*) filter (where &quot;PlateLocHeight&quot; &gt; 3.55
+                                or &quot;PlateLocHeight&quot; &lt; 1.77
+                                or &quot;PlateLocSide&quot; &gt; 0.86
+                                or &quot;PlateLocSide&quot; &lt; -0.86
+                                ) as total_out_of_zone_pitches,
+        COUNT(*) filter (where &quot;PlateLocHeight&quot; &lt; 3.55
+                                and &quot;PlateLocHeight&quot; &gt; 1.77
+                                and &quot;PlateLocSide&quot; &lt; 0.86
+                                and &quot;PlateLocSide&quot; &gt; -0.86
+                                ) as total_in_zone_pitches
+        from trackman_batter tb, trackman_metadata tm, trackman_pitcher tp
+        where tb.&quot;PitchUID&quot; = tm.&quot;PitchUID&quot; and tm.&quot;PitchUID&quot; = tp.&quot;PitchUID&quot; and tm.&quot;UTCDate&quot; &gt;= start_date and tm.&quot;UTCDate&quot; &lt;= end_date and tp.&quot;Pitcher&quot; = pitcher_name and tp.&quot;PitcherTeam&quot; = pitcher_team
+        group by (tp.&quot;Pitcher&quot;, tp.&quot;PitcherTeam&quot;)
+    )
+    select tp.&quot;Pitcher&quot; as &quot;Pitcher&quot;, tp.&quot;PitcherTeam&quot; as &quot;PitcherTeam&quot;,
+        COUNT(*) filter (where &quot;KorBB&quot; = 'Strikeout') as total_strikeouts_pitcher,
+        COUNT(*) filter (where &quot;KorBB&quot; = 'Walk') as total_walks_pitcher,
+        COUNT(*) filter (where &quot;PlateLocHeight&quot; &gt; 3.55
+                            or &quot;PlateLocHeight&quot; &lt; 1.77
+                            or &quot;PlateLocSide&quot; &gt; 0.86
+                            or &quot;PlateLocSide&quot; &lt; -0.86
+                            ) as total_out_of_zone_pitches,
+        COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'
+                        and &quot;PlateLocHeight&quot; &lt; 3.55
+                        and &quot;PlateLocHeight&quot; &gt; 1.77
+                        and &quot;PlateLocSide&quot; &lt; 0.86
+                        and &quot;PlateLocSide&quot; &gt; -0.86
+                        ) as misses_in_zone,
+        COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'  
+                        or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                        or &quot;PitchCall&quot; = 'InPlay'
+                        and &quot;PlateLocHeight&quot; &lt; 3.55
+                        and &quot;PlateLocHeight&quot; &gt; 1.77
+                        and &quot;PlateLocSide&quot; &lt; 0.86
+                        and &quot;PlateLocSide&quot; &gt; -0.86
+                        ) as swings_in_zone,
+        COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'  
+                        or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                        and &quot;PlateLocHeight&quot; &gt; 3.55
+                        and &quot;PlateLocHeight&quot; &lt; 1.77
+                        and &quot;PlateLocSide&quot; &gt; 0.86
+                        and &quot;PlateLocSide&quot; &lt; -0.86
+                        ) as total_num_chases,
+        COUNT(*) as pitches,
+        COUNT(distinct &quot;GameUID&quot;) as games,
+        COUNT(*) filter (where &quot;Inning&quot; = 1
+                        and &quot;Outs&quot; = 0
+                        and &quot;Balls&quot; = 0
+                        and &quot;Strikes&quot; = 0
+                        and &quot;PAofInning&quot; = 1
+                        ) as games_started,
+        ROUND(((COUNT(*) filter (where &quot;KorBB&quot; = 'StrikeOut') + 
+        SUM(&quot;OutsOnPlay&quot;::integer)) / 3) +
+        (((COUNT(*) filter (where &quot;KorBB&quot; = 'StrikeOut') + 
+        SUM(&quot;OutsOnPlay&quot;::integer)) % 3)::decimal / 10), 1) as total_innings_pitched,
+        COUNT(distinct (&quot;PAofInning&quot;, &quot;Inning&quot;, &quot;Batter&quot;, &quot;GameUID&quot;)) as total_batters_faced,
+        case when pss.&quot;total_in_zone_pitches&quot; = 0 then null
+            else COUNT(*) filter (where &quot;PitchCall&quot; = 'StrikeSwinging'
+                                and &quot;PlateLocHeight&quot; &lt; 3.55
+                                and &quot;PlateLocHeight&quot; &gt; 1.77
+                                and &quot;PlateLocSide&quot; &lt; 0.86
+                                and &quot;PlateLocSide&quot; &gt; -0.86
+                                )::decimal / pss.&quot;total_in_zone_pitches&quot;
+        end as in_zone_whiff_percentage,
+        case when pss.&quot;total_out_of_zone_pitches&quot; = 0 then null
+            else COUNT(*) filter (where (&quot;PitchCall&quot; = 'StrikeSwinging'
+                                or &quot;PitchCall&quot; = 'FoulBallNotFieldable'
+                                or &quot;PitchCall&quot; = 'InPlay')
+                                and (&quot;PlateLocHeight&quot; &gt; 3.55
+                                or &quot;PlateLocHeight&quot; &lt; 1.77
+                                or &quot;PlateLocSide&quot; &gt; 0.86
+                                or &quot;PlateLocSide&quot; &lt; -0.86)
+                                )::decimal / pss.&quot;total_out_of_zone_pitches&quot;
+        end as chase_percentage
+    from pitcher_stats_subquery_two pss, trackman_metadata tm, trackman_pitcher tp, trackman_batter tb
+    where pss.&quot;Pitcher&quot; = tp.&quot;Pitcher&quot; and pss.&quot;PitcherTeam&quot; = tp.&quot;PitcherTeam&quot; and tm.&quot;PitchUID&quot; = tp.&quot;PitchUID&quot; and tm.&quot;PitchUID&quot; = tb.&quot;PitchUID&quot; and tm.&quot;UTCDate&quot; &gt;= start_date and tm.&quot;UTCDate&quot; &lt;= end_date and tp.&quot;Pitcher&quot; = pitcher_name and tp.&quot;PitcherTeam&quot; = pitcher_team
+    group by (tp.&quot;Pitcher&quot;, tp.&quot;PitcherTeam&quot;, pss.&quot;total_out_of_zone_pitches&quot;, pss.&quot;total_in_zone_pitches&quot;)
+)
+select 
+    *,
+    case
+        when ps.&quot;total_batters_faced&quot; = 0 then null
+        else ps.&quot;total_strikeouts_pitcher&quot;::decimal / ps.&quot;total_batters_faced&quot;
+    end as k_percentage,
+    case
+        when ps.&quot;total_batters_faced&quot; = 0 then null
+        else ps.&quot;total_walks_pitcher&quot;::decimal / ps.&quot;total_batters_faced&quot;
+    end as base_on_ball_percentage
+from pitcher_stats_subquery ps;
+    end;
+$$ language plpgsql;
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

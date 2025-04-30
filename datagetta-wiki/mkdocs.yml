@@ -1,1 +1,55 @@
 site_name: My Docs
+site_url: https://example.com/
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - search.suggest
+    - content.code.copy
+
+nav:
+  - Home: Home.md
+  - Deployment Actions:
+      - Production Deployment Procedure: Deployment-Procedure.md
+      - Develop Branch Actions: Develop-Actions.md
+  - Local Development Environment:
+      - Local Development Troubleshooting FAQ: local-development-faq.md
+      - Environment Setup: App-Setup.md
+      - Docker Database Setup: db-setup.md
+  - Front-End Development:
+      - Project Structure - Liam: Structure-of-Project.md
+      - The Eye Overview (deprecated): The-Eye-Overview.md
+      - Player Percentiles Documentation: Player-Percentiles-Documentation.md
+      - App Folder: App-Folder.md
+      - Utils Directory: Utils-Directory.md
+      - Player Directory: Player-Directory.md
+      - Player Page: Player-Page.md
+      - Player Stats Redirect: Player-Stats-Redirect.md
+      - Player Stats - Time Filtered: Player-Stats-‐-Time‐Filtered-Data-Analysis.md
+      - Player Components: Player-Components.md
+      - Hitting Stats Visualization: Hitting-Stats-Visualization.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+  - footnotes
+  - tables

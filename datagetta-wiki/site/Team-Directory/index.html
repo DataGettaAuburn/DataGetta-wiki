@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>My Docs</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/fontawesome.min.css" rel="stylesheet">
-        <link href="/css/brands.min.css" rel="stylesheet">
-        <link href="/css/solid.min.css" rel="stylesheet">
-        <link href="/css/v4-font-face.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Team Directory - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="/.">My Docs</a>
+                <a class="navbar-brand" href="..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,16 +35,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="/About-SSH/" class="nav-link">About-SSH</a>
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/App-Folder/" class="nav-link">App-Folder</a>
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/App-Setup/" class="nav-link">App-Setup</a>
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
                             </li>
                         </ul>
 
@@ -61,15 +61,65 @@
 
         <div class="container">
             <div class="row">
-
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
     </div>
 
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#team-directory" class="nav-link">Team Directory</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#file-details" class="nav-link">File Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
 
+<h1 id="team-directory">Team Directory</h1>
+<p>This folder contains the structure for displaying team-specific data within <strong>The Eye</strong> application. Each team has pages for <strong>batting stats, pitching stats, and roster information</strong>.</p>
+<ul>
+<li><strong>[teamName]/</strong> - A dynamic folder containing pages for each individual team, including:</li>
+<li><code>batter/</code> - Displays team batting stats.</li>
+<li><code>pitcher/</code> - Displays team pitching stats.</li>
+<li><code>roster/</code> - Displays the team's full roster.</li>
+<li><code>layout.tsx</code> - Defines the layout for team-specific pages.</li>
+<li><strong>components/</strong> - Contains reusable UI components for rendering team-related data, such as tables and navigation elements.</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>This directory is responsible for organizing all pages and components that handle team-specific data. It is dynamically structured to allow seamless navigation between teams and their respective statistics, providing an efficient and interactive experience for users analyzing Auburn Baseball data.</p>
+<hr />
+<h2 id="file-details">File Details</h2>
+<h3 id="layouttsx"><code>layout.tsx</code></h3>
+<ul>
+<li><strong>Purpose</strong>: Provides a <strong>consistent layout</strong> for team pages, displaying the team name, conference, and navigation tabs.</li>
+<li><strong>Key Features</strong>:</li>
+<li>Retrieves <strong>team information</strong> (name and conference) from the database using Prisma.</li>
+<li>Uses <strong>MUI components</strong> to structure the layout and enhance UI design.</li>
+<li>Includes <code>TableTabs.tsx</code> for <strong>navigation</strong> between <strong>Roster, Batting, and Pitching pages</strong>.</li>
+<li>Displays <code>TeamInfo.tsx</code> to show <strong>team details</strong>.</li>
+<li>Renders <strong>dynamic children components</strong> for each specific team page (batting, pitching, or roster).</li>
+</ul>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>The <code>[teamName]/</code> directory provides a <strong>structured and navigable</strong> interface for users to explore team-specific data. The <code>layout.tsx</code> ensures <strong>consistent styling</strong> and <strong>efficient data retrieval</strong>, improving the user experience when browsing different team pages.</p></div>
             </div>
         </div>
 
@@ -77,13 +127,13 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = "/",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js"></script>
-        <script src="/search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

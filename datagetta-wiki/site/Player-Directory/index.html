@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>My Docs</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/fontawesome.min.css" rel="stylesheet">
-        <link href="/css/brands.min.css" rel="stylesheet">
-        <link href="/css/solid.min.css" rel="stylesheet">
-        <link href="/css/v4-font-face.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Player Directory - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="/.">My Docs</a>
+                <a class="navbar-brand" href="..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,16 +35,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="/About-SSH/" class="nav-link">About-SSH</a>
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/App-Folder/" class="nav-link">App-Folder</a>
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/App-Setup/" class="nav-link">App-Setup</a>
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
                             </li>
                         </ul>
 
@@ -61,15 +61,74 @@
 
         <div class="container">
             <div class="row">
-
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
     </div>
 
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#player-directory" class="nav-link">Player Directory</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#structure" class="nav-link">Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#player-pages" class="nav-link">Player Pages</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#components" class="nav-link">Components</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
 
+<h1 id="player-directory">Player Directory</h1>
+<p>This directory contains all <strong>player-related data and components</strong> for displaying individual player statistics, heat maps, run value models, and defensive shifts.</p>
+<h2 id="structure">Structure</h2>
+<ul>
+<li><strong>[teamName]/</strong> - Dynamic folder that holds <strong>all players for a specific team</strong>.</li>
+<li><strong>components/</strong> - Contains <strong>shared UI components</strong> used in player pages.</li>
+</ul>
+<h2 id="player-pages">Player Pages</h2>
+<p>Each player has a dedicated page within their <strong>team folder</strong>, structured as follows:</p>
+<ul>
+<li><strong>stats/</strong> - Displays player statistics over a given date range.</li>
+<li><strong>heatMap/</strong> - Shows heat maps for pitchers.</li>
+<li><strong>runValue/</strong> - Displays run value models for players.</li>
+<li><strong>shiftModel/</strong> - Displays defensive shifting models.</li>
+</ul>
+<h2 id="components">Components</h2>
+<p>The <code>components/</code> folder contains shared components for displaying:</p>
+<ul>
+<li><strong>Batting and pitching stats</strong></li>
+<li><strong>Heat maps for pitches</strong></li>
+<li><strong>Defensive shift models</strong></li>
+<li><strong>Run value models</strong></li>
+</ul>
+<p>These components allow for <strong>dynamic data visualization</strong> and enable interactive exploration of player performance.</p>
+<hr />
+<h3 id="example-player-page-structure">Example Player Page Structure</h3>
+<pre><code>/player/
+  [teamName]/
+    [playerName]/
+      stats/
+      heatMap/
+      runValue/
+      shiftModel/
+  components/
+</code></pre>
+<p>This directory ensures <strong>organized player data management</strong> and <strong>efficient data retrieval</strong> for Auburn Baseball analytics.</p></div>
             </div>
         </div>
 
@@ -77,13 +136,13 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = "/",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js"></script>
-        <script src="/search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

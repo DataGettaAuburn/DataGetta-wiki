@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>About-SSH - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">About-SSH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../App-Folder/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#understanding-ssh-on-an-ubuntu-server" class="nav-link">Understanding SSH on an Ubuntu Server</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-what-is-ssh" class="nav-link">1️⃣ What is SSH?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-how-ssh-works" class="nav-link">2️⃣ How SSH Works</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-ssh-authentication-methods" class="nav-link">3️⃣ SSH Authentication Methods</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-understanding-ssh-keys" class="nav-link">4️⃣ Understanding SSH Keys</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-setting-up-ssh-key-authentication-on-an-ubuntu-server" class="nav-link">6️⃣ Setting Up SSH Key Authentication on an Ubuntu Server</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-the-ssh-directory-on-the-server" class="nav-link">7️⃣ The .ssh Directory on the Server</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-secure-ssh-with-a-firewall" class="nav-link">8️⃣ Secure SSH with a Firewall</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#summary-of-ssh-on-ubuntu" class="nav-link">🛠️ Summary of SSH on Ubuntu</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-debugging-ssh-issues" class="nav-link">9️⃣ Debugging SSH Issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#next-steps" class="nav-link">🚀 Next Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="understanding-ssh-on-an-ubuntu-server"><strong>Understanding SSH on an Ubuntu Server</strong></h1>
+<h2 id="1-what-is-ssh"><strong>1️⃣ What is SSH?</strong></h2>
+<p>SSH (<strong>Secure Shell</strong>) is a protocol that allows <strong>secure remote access</strong> to a machine over a network. It is <strong>encrypted</strong>, meaning all communication between your computer (client) and the server is <strong>protected from eavesdropping</strong>.</p>
+<p>On an <strong>Ubuntu VM/server</strong>, SSH functions as a <strong>client-server system</strong>, where:
+- Your <strong>local computer</strong> is the <strong>SSH client</strong>.
+- The <strong>Ubuntu VM/server</strong> runs the <strong>SSH server (sshd)</strong>.</p>
+<hr />
+<h2 id="2-how-ssh-works"><strong>2️⃣ How SSH Works</strong></h2>
+<h3 id="step-1-ssh-server-sshd-runs-on-the-ubuntu-vm"><strong>Step 1: SSH Server (sshd) Runs on the Ubuntu VM</strong></h3>
+<p>On the <strong>Ubuntu server</strong>, an SSH daemon (<code>sshd</code>) listens for incoming connections <strong>on port 22 (default)</strong>.</p>
+<p>To check if SSH is running:</p>
+<pre><code class="language-bash">sudo systemctl status ssh
+</code></pre>
+<p>If SSH is not running, start it:</p>
+<pre><code class="language-bash">sudo systemctl start ssh
+</code></pre>
+<p>To ensure SSH starts on boot:</p>
+<pre><code class="language-bash">sudo systemctl enable ssh
+</code></pre>
+<hr />
+<h3 id="step-2-connecting-to-the-ssh-server-from-your-local-machine"><strong>Step 2: Connecting to the SSH Server from Your Local Machine</strong></h3>
+<p>To connect to the Ubuntu server, use the following SSH command from your terminal:</p>
+<pre><code class="language-bash">ssh [your-username]@your-server-ip
+</code></pre>
+<p>For example, if connecting to <strong>datagetta_servers</strong>:</p>
+<pre><code class="language-bash">ssh yourusername@datagetta.cse.eng.auburn.edu
+</code></pre>
+<p>When this command runs:
+1. The SSH client <strong>finds the server's IP address</strong>.
+2. It <strong>requests authentication</strong> (password or SSH key).
+3. If authentication <strong>succeeds</strong>, an <strong>encrypted session</strong> starts, allowing you to execute commands remotely.</p>
+<hr />
+<h2 id="3-ssh-authentication-methods"><strong>3️⃣ SSH Authentication Methods</strong></h2>
+<p>There are two main ways to authenticate:</p>
+<h3 id="a-password-authentication-less-secure"><strong>A) Password Authentication (Less Secure)</strong></h3>
+<ul>
+<li>You enter your <strong>password manually</strong> each time you log in.</li>
+<li>If the server allows password authentication (<code>PasswordAuthentication yes</code> in <code>/etc/ssh/sshd_config</code>), you will be prompted for a password.</li>
+</ul>
+<h3 id="b-ssh-key-authentication-more-secure"><strong>B) SSH Key Authentication (More Secure)</strong></h3>
+<ul>
+<li>Instead of passwords, <strong>SSH keys</strong> (public-private key pairs) are used.</li>
+<li>The <strong>private key</strong> stays on your local machine, and the <strong>public key</strong> is added to the server.</li>
+</ul>
+<hr />
+<h2 id="4-understanding-ssh-keys"><strong>4️⃣ Understanding SSH Keys</strong></h2>
+<p>SSH keys provide <strong>passwordless login</strong> and <strong>better security</strong>.</p>
+<h3 id="generating-ssh-keys"><strong>Generating SSH Keys</strong></h3>
+<p>To generate a new SSH key pair on your <strong>local machine</strong>:</p>
+<pre><code class="language-bash">ssh-keygen -t rsa -b 4096 -C &quot;your-email@example.com&quot;
+</code></pre>
+<p>This creates:
+- <strong>Private Key (<code>~/.ssh/id_rsa</code>)</strong> → <strong>DO NOT share this!</strong>
+- <strong>Public Key (<code>~/.ssh/id_rsa.pub</code>)</strong> → Can be added to an SSH server for authentication.</p>
+<hr />
+<h3 id="5-how-the-server-uses-your-ssh-key"><strong>5️⃣ How the Server Uses Your SSH Key</strong></h3>
+<p>When you try to log in:
+1. The SSH client <strong>sends the public key</strong> to the server.
+2. The server <strong>checks if it exists</strong> in <code>~/.ssh/authorized_keys</code>.
+3. If the key matches, the server <strong>encrypts a challenge message</strong>.
+4. Your local machine <strong>decrypts it using your private key</strong> and proves your identity.
+5. You are <strong>logged in without needing a password</strong>.</p>
+<hr />
+<h2 id="6-setting-up-ssh-key-authentication-on-an-ubuntu-server"><strong>6️⃣ Setting Up SSH Key Authentication on an Ubuntu Server</strong></h2>
+<h3 id="step-1-copy-your-public-key-to-the-server"><strong>Step 1: Copy Your Public Key to the Server</strong></h3>
+<p>To allow <strong>passwordless SSH login</strong>, add your key to the server's <code>authorized_keys</code> file.</p>
+<p>On your <strong>local machine</strong>, run:</p>
+<pre><code class="language-bash">ssh-copy-id yourusername@datagetta.cse.eng.auburn.edu
+</code></pre>
+<p>Or manually:</p>
+<pre><code class="language-bash">scp ~/.ssh/id_rsa.pub yourusername@datagetta.cse.eng.auburn.edu:~/
+</code></pre>
+<p>Then log into the server:</p>
+<pre><code class="language-bash">ssh yourusername@datagetta.cse.eng.auburn.edu
+</code></pre>
+<p>Append the key to <code>authorized_keys</code>:</p>
+<pre><code class="language-bash">mkdir -p ~/.ssh
+cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+rm ~/id_rsa.pub
+</code></pre>
+<hr />
+<h3 id="step-2-disable-password-authentication-for-security"><strong>Step 2: Disable Password Authentication (For Security)</strong></h3>
+<p>Edit the SSH configuration file:</p>
+<pre><code class="language-bash">sudo nano /etc/ssh/sshd_config
+</code></pre>
+<p>Find and change:</p>
+<pre><code>PasswordAuthentication no
+PermitRootLogin no
+</code></pre>
+<p>Restart SSH for changes to take effect:</p>
+<pre><code class="language-bash">sudo systemctl restart ssh
+</code></pre>
+<hr />
+<h2 id="7-the-ssh-directory-on-the-server"><strong>7️⃣ The <code>.ssh</code> Directory on the Server</strong></h2>
+<p>After setting up SSH keys, the <code>~/.ssh/</code> folder on the server will look like:</p>
+<pre><code class="language-bash">/home/yourusername/.ssh/
+├── authorized_keys  # Contains all public keys that are allowed to log in
+├── known_hosts      # Keeps a record of previously connected SSH servers
+</code></pre>
+<p>To view existing SSH keys:</p>
+<pre><code class="language-bash">ls -la ~/.ssh
+</code></pre>
+<p>To check allowed SSH keys:</p>
+<pre><code class="language-bash">cat ~/.ssh/authorized_keys
+</code></pre>
+<hr />
+<h2 id="8-secure-ssh-with-a-firewall"><strong>8️⃣ Secure SSH with a Firewall</strong></h2>
+<p>To prevent unauthorized SSH access, configure the firewall:</p>
+<pre><code class="language-bash">sudo ufw allow OpenSSH
+sudo ufw enable
+sudo ufw status
+</code></pre>
+<p>This ensures <strong>only trusted clients</strong> can access your server.</p>
+<hr />
+<h2 id="summary-of-ssh-on-ubuntu"><strong>🛠️ Summary of SSH on Ubuntu</strong></h2>
+<p>✅ <strong>SSH Server (<code>sshd</code>) runs on port 22</strong><br />
+✅ <strong>Clients connect via SSH using password or key authentication</strong><br />
+✅ <strong>SSH Keys provide secure, passwordless login</strong><br />
+✅ <strong>The <code>.ssh</code> folder contains authentication settings</strong><br />
+✅ <strong>Configuring <code>sshd_config</code> improves security</strong>  </p>
+<hr />
+<h2 id="9-debugging-ssh-issues"><strong>9️⃣ Debugging SSH Issues</strong></h2>
+<p>If you are having trouble connecting, check:</p>
+<pre><code class="language-bash">sudo journalctl -u ssh --since &quot;1 hour ago&quot;
+</code></pre>
+<p>Or inspect failed login attempts:</p>
+<pre><code class="language-bash">sudo tail -f /var/log/auth.log
+</code></pre>
+<hr />
+<h2 id="next-steps"><strong>🚀 Next Steps</strong></h2>
+<p>Would you like to configure <strong>GitHub Actions for secure, passwordless SSH deployments</strong>?<br />
+Let me know if you need <strong>automated SSH key management</strong> for your team!</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

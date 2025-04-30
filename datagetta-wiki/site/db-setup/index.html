@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>My Docs</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/fontawesome.min.css" rel="stylesheet">
-        <link href="/css/brands.min.css" rel="stylesheet">
-        <link href="/css/solid.min.css" rel="stylesheet">
-        <link href="/css/v4-font-face.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Local DB Setup with Docker Guide - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="/.">My Docs</a>
+                <a class="navbar-brand" href="..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,16 +35,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="/About-SSH/" class="nav-link">About-SSH</a>
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/App-Folder/" class="nav-link">App-Folder</a>
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/App-Setup/" class="nav-link">App-Setup</a>
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
                             </li>
                         </ul>
 
@@ -61,15 +61,52 @@
 
         <div class="container">
             <div class="row">
-
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
     </div>
 
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#local-db-setup-with-docker-guide" class="nav-link">Local DB Setup with Docker Guide</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
 
+<h1 id="local-db-setup-with-docker-guide">Local DB Setup with Docker Guide</h1>
+<h3 id="1-pull-the-latest-changes">1. Pull the Latest Changes</h3>
+<p>Ensure your local repository is up to date by pulling the latest changes.</p>
+<h3 id="2-shut-down-existing-containers">2. Shut Down Existing Containers</h3>
+<p>If the container for this project is already running, navigate to the main directory and run the following command in the terminal:</p>
+<pre><code class="language-sh">docker compose down -v
+</code></pre>
+<h3 id="3-remove-existing-data">3. Remove Existing Data</h3>
+<p>Delete the <code>data</code> and <code>backups</code> folders if they exist in the main directory.</p>
+<p><strong>Warning:</strong> This action will <strong>delete all data currently stored in the database</strong>.</p>
+<pre><code class="language-sh">rm -rf data backups
+</code></pre>
+<h3 id="4-update-configuration-file">4. Update Configuration File</h3>
+<p>Navigate to your <code>.env</code> file and ensure the following settings are correct for local development:</p>
+<pre><code class="language-env">SQL_SERVER_NAME: &quot;localhost&quot;
+SQL_PORT: &quot;5433&quot;
+</code></pre>
+<p><strong>Note:</strong> This is for local development only. If running on the server, these values should be set as follows:</p>
+<pre><code class="language-env">SQL_SERVER_NAME: &quot;datagetta.cse.eng.auburn.edu&quot;
+SQL_PORT: &quot;5432&quot;
+</code></pre>
+<h3 id="5-start-the-containers">5. Start the Containers</h3>
+<p>In the main directory, bring up the containers in detached mode:</p>
+<pre><code class="language-sh">docker compose up -d
+</code></pre>
+<p>This will start the services defined in the <code>docker-compose.yml</code> file for local development.</p></div>
             </div>
         </div>
 
@@ -77,13 +114,13 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = "/",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js"></script>
-        <script src="/search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

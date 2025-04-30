@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>App-Setup - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">App-Setup</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../App-Folder/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../CAS-setup-for-datagetta/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#local-app-setup-inhereted-structure" class="nav-link">Local App Setup (Inhereted Structure)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-if-needed-install-necessary-frameworks-tools-locally" class="nav-link">1. (If Needed) Install Necessary Frameworks / Tools Locally</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-clone-repo-locally-from-github" class="nav-link">2. Clone Repo Locally from GitHub</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-install-node-dependencies" class="nav-link">3. Install Node Dependencies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-pull-the-required-docker-images-from-remote-registry" class="nav-link">3. Pull the Required Docker Images from Remote Registry</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#run-the-docker-compose-file-to-start-the-containers" class="nav-link">Run the Docker Compose File to Start the Containers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-setup-python-environment" class="nav-link">4. Setup Python Environment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-run-parser" class="nav-link">5. Run Parser</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="local-app-setup-inhereted-structure">Local App Setup (Inhereted Structure)</h1>
+<p><em>Last Updated 3/24/25 by Tyler Teufel</em></p>
+<h2 id="1-if-needed-install-necessary-frameworks-tools-locally">1. (If Needed) Install Necessary Frameworks / Tools Locally</h2>
+<p>The first step in getting this project setup for local development is to make sure your machine has the necessary local dependencies. Though some might already have these installed, in the case that you do not, the following must be installed in order to run the project locally:</p>
+<ul>
+<li><a href="https://docs.docker.com/desktop/setup/install/windows-install/">Docker Desktop (Windows)</a> , <a href="https://docs.docker.com/desktop/setup/install/mac-install/">Docker Desktop (Mac)</a>, or <a href="https://docs.docker.com/desktop/setup/install/linux/ubuntu/">Docker Desktop (Linux)</a></li>
+<li><a href="https://nodejs.org/en/download">Node.js </a> (See drop down for different Operating Systems Options)</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
+</ul>
+<h2 id="2-clone-repo-locally-from-github">2. Clone Repo Locally from GitHub</h2>
+<p>The next step is to clone the remote GitHub repository locally for development. Once you are in the desired directory to store the project folder in, run the following command:</p>
+<pre><code class="language-bash">git clone https://github.com/tyler-teufel/datagetta.git
+</code></pre>
+<p>From here, you can <code>cd</code> into the generated folder to access the project in its git repository, and develop in your desired IDE.</p>
+<h2 id="3-install-node-dependencies">3. Install Node Dependencies</h2>
+<p>If you have not already, run the following command to enter the project folder. If you have already opened the project folder in your IDE of choice, you may skip this step.</p>
+<pre><code class="language-bash">cd datagetta
+</code></pre>
+<p>Once in the project repo directory, the next step will be to navigate into the UI folder to install the node package dependencies needed to make the Next.js project and any additionally used packages operate as intended:</p>
+<pre><code class="language-bash">cd dg-frontend
+npm install
+</code></pre>
+<p>You can past both lines into the terminal and they should execute sequentially; however feel free to enter them one at a time as well.</p>
+<p>If any errors are encountered, double check that you have installed Node correctly, and that it is at least version 21.</p>
+<p><strong>Please Note: This may take a minute or so upon the first installation. This is a large project, so if you see the animated spinning loader icon in the terminal, it should be working as intended.</strong></p>
+<h2 id="3-pull-the-required-docker-images-from-remote-registry">3. Pull the Required Docker Images from Remote Registry</h2>
+<p>Next, we need to pull the 3 images needed to run the project into your local docker environment, which have the correct image versions configured in the <code>docker-compose.yaml</code> file.</p>
+<p>To pull the images from the remote registry, run the following:</p>
+<pre><code class="language-bash">docker compose pull
+</code></pre>
+<p>If your system does not recognize docker for whatever reason, please verify the installation worked correctly.</p>
+<h2 id="run-the-docker-compose-file-to-start-the-containers">Run the Docker Compose File to Start the Containers</h2>
+<p>In order to have the pulled docker images begin to run as containers, allowing your project to get started, run the following command from the outer directory, with the locally configured <code>docker-compose.override.yaml</code> file:</p>
+<pre><code class="language-bash">docker compose -f up -d
+</code></pre>
+<p>It is imperative that, when working locally, you ensure you utilize the overflow file such that you are not using the prod setup.</p>
+<p>The terminal should show the containers starting, and finish with dialog that either says <code>started</code> or <code>running</code>.</p>
+<p>From here, open up your browser and navigate to <code>localhost:3000</code> to access the Next.js web app.</p>
+<h2 id="4-setup-python-environment">4. Setup Python Environment</h2>
+<p>To get setup with the parser locally, first you want to navigate back to the home directory of the project, and setup your venv:</p>
+<pre><code class="language-bash">cd .. # This should take you back to the root directory /datagetta
+</code></pre>
+<p>Once in the root directory, run the following to create your venv with the closest python version you have to <code>3.10</code>:</p>
+<p>For Unix based OS (Mac / Linux):</p>
+<pre><code class="language-bash">python3.10 -m venv dg-env 
+source dg-env/bin/activate
+</code></pre>
+<p>For Windows:</p>
+<pre><code class="language-bash">python3.10 -m venv dg-env
+source dg-env/Scripts/activate
+</code></pre>
+<p>Please note - you do not have to install 3.10 if you do not have it. Simply use the lowest python version you have.</p>
+<p>Next, you need to navigate to the parser directory:</p>
+<pre><code class="language-bash">cd csvparser/src
+</code></pre>
+<p>Once you are in src, you need to install the python package dependencies in the venv. Make sure to first verify that your terminal is using the correct python venv:</p>
+<pre><code class="language-bash">which python3 # Or which python for windows
+</code></pre>
+<p>If the returned path leads to your venv folder, then you are ready to continue. You then install the dependencies using <code>pip</code>:</p>
+<pre><code class="language-bash">pip3 install -r requirements.txt
+</code></pre>
+<p>for more info regarding package updates, see that wiki page <a href="Dependency-Updates">here</a>.</p>
+<h2 id="5-run-parser">5. Run Parser</h2>
+<p><strong>Please note - you can also run this directly in the container; however this is how I (Tyler) have been going about it.</strong></p>
+<p>In the <code>src</code> directory, running the parser is as easy as this command:</p>
+<pre><code class="language-bash">python3 ftpPuller.py
+</code></pre>
+<p><strong>Please note - this will take several hours!</strong></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

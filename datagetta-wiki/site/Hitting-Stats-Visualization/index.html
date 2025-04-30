@@ -4,27 +4,27 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>My Docs</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fontawesome.min.css" rel="stylesheet">
-        <link href="css/brands.min.css" rel="stylesheet">
-        <link href="css/solid.min.css" rel="stylesheet">
-        <link href="css/v4-font-face.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Batting - Player Hitting Statistics Visualization - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">My Docs</a>
+                <a class="navbar-brand" href="..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,16 +35,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="About-SSH/" class="nav-link">About-SSH</a>
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
                             </li>
                             <li class="nav-item">
-                                <a href="App-Folder/" class="nav-link">App-Folder</a>
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
                             </li>
                             <li class="nav-item">
-                                <a href="App-Setup/" class="nav-link">App-Setup</a>
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
                             </li>
                             <li class="nav-item">
-                                <a href="CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
                             </li>
                         </ul>
 
@@ -72,13 +72,17 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#welcome-to-mkdocs" class="nav-link">Welcome to MkDocs</a>
+            <li class="nav-item" data-bs-level="1"><a href="#batting-player-hitting-statistics-visualization" class="nav-link">Batting - Player Hitting Statistics Visualization</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#commands" class="nav-link">Commands</a>
+            <li class="nav-item" data-bs-level="2"><a href="#structure" class="nav-link">Structure</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#project-layout" class="nav-link">Project layout</a>
+            <li class="nav-item" data-bs-level="2"><a href="#component-details" class="nav-link">Component Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#usage" class="nav-link">Usage</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -89,21 +93,63 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="batting-player-hitting-statistics-visualization">Batting - Player Hitting Statistics Visualization</h1>
+<p>This folder contains components used to <strong>display and visualize batting statistics</strong> for a player.</p>
+<h2 id="structure">Structure</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong><code>BattingStatsBarChart.tsx</code></strong> - Renders a bar chart of key batting statistics.</li>
+<li><strong><code>BattingStatsTable.tsx</code></strong> - Displays detailed batting statistics in a table format.</li>
+<li><strong><code>CreateBatterDiagrams.tsx</code></strong> - Combines both the table and bar chart into a single layout.</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<h2 id="component-details">Component Details</h2>
+<h3 id="battingstatsbarcharttsx"><code>BattingStatsBarChart.tsx</code></h3>
+<ul>
+<li><strong>Purpose</strong>: Creates a <strong>bar chart</strong> to display various batting statistics.</li>
+<li><strong>Key Features</strong>:</li>
+<li>Uses the <strong>Material UI <code>BarChart</code></strong> component.</li>
+<li>Formats data to match chart requirements.</li>
+<li>Displays the following statistics:<ul>
+<li>OBP (On-Base Percentage)</li>
+<li>SLUG (Slugging Percentage)</li>
+<li>OPS (On-Base Plus Slugging)</li>
+<li>CHASE (Chase Percentage)</li>
+<li>IZW (In-Zone Whiff Percentage)</li>
+<li>ISO (Isolated Power)</li>
+<li>K% (Strikeout Percentage)</li>
+<li>BoB (Base on Balls Percentage)</li>
+</ul>
+</li>
+</ul>
+<h3 id="battingstatstabletsx"><code>BattingStatsTable.tsx</code></h3>
+<ul>
+<li><strong>Purpose</strong>: Displays batting statistics in a <strong>structured table</strong> format.</li>
+<li><strong>Key Features</strong>:</li>
+<li>Uses <strong>Material UI <code>Table</code></strong> components for styling.</li>
+<li>Shows the following detailed batting statistics:<ul>
+<li>Games played</li>
+<li>Plate appearances</li>
+<li>At-bats</li>
+<li>Batting average</li>
+<li>Hits, strikes, walks, strikeouts</li>
+<li>Homeruns, extra-base hits, sacrifice plays, hit-by-pitch</li>
+<li>Total bases</li>
+</ul>
+</li>
+</ul>
+<h3 id="createbatterdiagramstsx"><code>CreateBatterDiagrams.tsx</code></h3>
+<ul>
+<li><strong>Purpose</strong>: <strong>Combines</strong> the bar chart and stats table into a structured layout.</li>
+<li><strong>Key Features</strong>:</li>
+<li>Uses <strong>Material UI <code>Grid</code></strong> for responsive design.</li>
+<li>Displays both the <code>BattingStatsTable</code> and <code>BattingStatsBarChart</code> components.</li>
+<li>Ensures data is consistently formatted and visualized effectively.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>These components are used in player profiles to provide <strong>statistical insights into batting performance</strong>.</p>
+<p>Example usage:</p>
+<pre><code class="language-tsx">&lt;CreateBatterDiagrams stats={playerBattingStats} /&gt;
+</code></pre>
+<p>This will render both the table and bar chart for the given player's batting statistics.</p></div>
             </div>
         </div>
 
@@ -111,13 +157,13 @@ docs/
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -182,8 +228,3 @@ docs/
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2025-04-30 15:26:46.258854+00:00
--->

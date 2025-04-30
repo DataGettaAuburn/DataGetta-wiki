@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>My Docs</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/fontawesome.min.css" rel="stylesheet">
-        <link href="/css/brands.min.css" rel="stylesheet">
-        <link href="/css/solid.min.css" rel="stylesheet">
-        <link href="/css/v4-font-face.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Team Batter Page - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="/.">My Docs</a>
+                <a class="navbar-brand" href="..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,16 +35,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="/About-SSH/" class="nav-link">About-SSH</a>
+                                <a href="../About-SSH/" class="nav-link">About-SSH</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/App-Folder/" class="nav-link">App-Folder</a>
+                                <a href="../App-Folder/" class="nav-link">App-Folder</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/App-Setup/" class="nav-link">App-Setup</a>
+                                <a href="../App-Setup/" class="nav-link">App-Setup</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
+                                <a href="../CAS-setup-for-datagetta/" class="nav-link">CAS-setup-for-datagetta</a>
                             </li>
                         </ul>
 
@@ -61,15 +61,74 @@
 
         <div class="container">
             <div class="row">
-
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
     </div>
 
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#team-batter-page" class="nav-link">Team Batter Page</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#file-overview" class="nav-link">File Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#component-breakdown" class="nav-link">Component Breakdown</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#example-usage" class="nav-link">Example Usage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
 
+<h1 id="team-batter-page">Team Batter Page</h1>
+<p>This folder contains the <strong>team batter statistics page</strong>, which displays batting stats for all players on a given team.</p>
+<h2 id="file-overview">File Overview</h2>
+<h3 id="pagetsx"><code>page.tsx</code></h3>
+<ul>
+<li><strong>Purpose</strong>: Generates the team batter stats page dynamically based on the provided team name.</li>
+<li><strong>Key Features</strong>:</li>
+<li><strong>Fetches and Displays Batting Stats</strong>:<ul>
+<li>Uses <code>CreateBatterTable.tsx</code> to generate the batting table.</li>
+</ul>
+</li>
+<li><strong>Suspense and Loading State</strong>:<ul>
+<li>Wraps the batter stats table in <code>React.Suspense</code>, using <code>TableSkeleton.tsx</code> as a fallback to enhance performance and user experience.</li>
+</ul>
+</li>
+<li><strong>Dynamic Routing</strong>:<ul>
+<li>Extracts <code>teamName</code> from the URL and decodes it for use in queries.</li>
+</ul>
+</li>
+</ul>
+<h2 id="component-breakdown">Component Breakdown</h2>
+<ul>
+<li><code>CreateBatterTable.tsx</code>: Queries and formats batting stats before rendering them in a table.</li>
+<li><code>TableSkeleton.tsx</code>: Displays a loading skeleton while data is being fetched.</li>
+</ul>
+<h2 id="example-usage">Example Usage</h2>
+<p>The page is automatically routed based on the team name in the URL:</p>
+<pre><code class="language-url">/the-eye/team/AUB_TIG/batter
+</code></pre>
+<p>This will display all batter stats for Auburn Tigers.</p>
+<h2 id="summary">Summary</h2>
+<p>This page provides <strong>team-wide batting statistics</strong> in a structured and easy-to-read table, leveraging server-side rendering for fast and efficient data retrieval.</p></div>
             </div>
         </div>
 
@@ -77,13 +136,13 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = "/",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js"></script>
-        <script src="/search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
