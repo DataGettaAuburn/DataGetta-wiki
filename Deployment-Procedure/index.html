@@ -8,22 +8,28 @@
       
       
       
+        <link rel="canonical" href="https://example.com/Deployment-Procedure/">
       
       
+        <link rel="prev" href="../Home/">
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      
+        <link rel="next" href="../Develop-Actions/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>My Docs</title>
+        <title>Production Deployment Procedure - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#deploying-new-changes-to-production" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -77,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -97,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Production Deployment Procedure
             
           </span>
         </div>
@@ -198,7 +209,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Home/" class="md-tabs__link">
+      <a href="../Home/" class="md-tabs__link">
         
   
   
@@ -215,11 +226,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/Deployment-Procedure/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -239,7 +252,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/local-development-faq/" class="md-tabs__link">
+        <a href="../local-development-faq/" class="md-tabs__link">
           
   
   
@@ -259,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Structure-of-Project/" class="md-tabs__link">
+        <a href="../Structure-of-Project/" class="md-tabs__link">
           
   
   
@@ -293,7 +306,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -311,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Home/" class="md-nav__link">
+      <a href="../Home/" class="md-nav__link">
         
   
   
@@ -330,24 +343,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -360,7 +378,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Deployment Actions
@@ -371,10 +389,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/Deployment-Procedure/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Production Deployment Procedure
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -385,6 +425,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#self-hosted-runner-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Self Hosted Runner Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Triggers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -397,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Develop-Actions/" class="md-nav__link">
+      <a href="../Develop-Actions/" class="md-nav__link">
         
   
   
@@ -468,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/local-development-faq/" class="md-nav__link">
+      <a href="../local-development-faq/" class="md-nav__link">
         
   
   
@@ -491,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/App-Setup/" class="md-nav__link">
+      <a href="../App-Setup/" class="md-nav__link">
         
   
   
@@ -514,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/db-setup/" class="md-nav__link">
+      <a href="../db-setup/" class="md-nav__link">
         
   
   
@@ -585,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Structure-of-Project/" class="md-nav__link">
+      <a href="../Structure-of-Project/" class="md-nav__link">
         
   
   
@@ -608,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/The-Eye-Overview/" class="md-nav__link">
+      <a href="../The-Eye-Overview/" class="md-nav__link">
         
   
   
@@ -631,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Percentiles-Documentation/" class="md-nav__link">
+      <a href="../Player-Percentiles-Documentation/" class="md-nav__link">
         
   
   
@@ -654,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/App-Folder/" class="md-nav__link">
+      <a href="../App-Folder/" class="md-nav__link">
         
   
   
@@ -677,7 +764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Utils-Directory/" class="md-nav__link">
+      <a href="../Utils-Directory/" class="md-nav__link">
         
   
   
@@ -700,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Directory/" class="md-nav__link">
+      <a href="../Player-Directory/" class="md-nav__link">
         
   
   
@@ -723,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Page/" class="md-nav__link">
+      <a href="../Player-Page/" class="md-nav__link">
         
   
   
@@ -746,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Stats-Redirect/" class="md-nav__link">
+      <a href="../Player-Stats-Redirect/" class="md-nav__link">
         
   
   
@@ -769,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Stats-%E2%80%90-Time%E2%80%90Filtered-Data-Analysis/" class="md-nav__link">
+      <a href="../Player-Stats-%E2%80%90-Time%E2%80%90Filtered-Data-Analysis/" class="md-nav__link">
         
   
   
@@ -792,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Components/" class="md-nav__link">
+      <a href="../Player-Components/" class="md-nav__link">
         
   
   
@@ -815,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Hitting-Stats-Visualization/" class="md-nav__link">
+      <a href="../Hitting-Stats-Visualization/" class="md-nav__link">
         
   
   
@@ -855,6 +942,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#self-hosted-runner-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Self Hosted Runner Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Triggers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -866,8 +990,40 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="deploying-new-changes-to-production">Deploying New Changes to Production<a class="headerlink" href="#deploying-new-changes-to-production" title="Permanent link">&para;</a></h1>
+<p>With the newly deployed production environment, we have successfully setup a Github Self-Hosted Runner on the OIT provided VM such that with every PR that is merged or change pushed to <code>main</code> a our actions script is triggered.</p>
+<h2 id="self-hosted-runner-overview">Self Hosted Runner Overview<a class="headerlink" href="#self-hosted-runner-overview" title="Permanent link">&para;</a></h2>
+<p>By using a <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners">Self-Hosted Runner</a>, we avoid the minute limitations and potential costs that are associated with GitHub runners, by leveraging the Ubuntu server that we have been provided with. The current runner is connected to the account of <a href="https://github.com/tyler-teufel">tyler-teufel</a> at the time of the writing of this document, and is directly connected to this repository. For instructions on how this Self Hosted Runner was setup, see the following:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=aLHyPZO0Fy0">Youtube Tutorial</a></li>
+<li><a href="https://gist.github.com/devinschumacher/c503cead206d4992d1a3cbb03c95e4c9">GitHub Gist Tutorial Post</a></li>
+</ul>
+<p>Following the following tutorials can provide some insight into how everything is setup.</p>
+<h2 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h2>
+<p>In terms of the secrets that are traditionally utilized within a <code>.env</code> file for local development, we store them within the actions secrets within the repository. If you navigate to the repository settings and head to the 'secrets &amp; variables' tab, and then select 'actions', you can add or modify any secrets needed.</p>
+<p>The secrets are then routed utilizing injection code within both the <code>production.yml</code> actions script, as well as the <code>docker-compose.yaml</code> file. These secrets are first accessed from the repository using <code>secrets.SECRET_NAME</code> under the <code>env:</code> section of the actions script. To ensure these variables can be used within all run steps, inject this within the <code>deploy:</code> section right after the line showing <code>runs-on: self-hosted</code>. Doing this allows for each subsequent job to have access the all of the variables within the environment itself. From here, think of the variables as being injected at runtime into the project environment.</p>
+<p>The next step is to inject these into the <code>docker-compose.yaml</code> file. Due to the way Docker is setup, it automatically tries to look for a .env file in the environment for the secrets. Since there is not one in this setup, we need to utilize an intuitive workaround that does not intervene with our <code>docker-compose.override.yaml</code> file we use for local development. This can be done by creating a section within the <code>docker-compose.yaml</code> file called <code>x-common-env</code> that would contain environmental variable injections that can be used as if it were in fact the contents of a <code>.env</code> file.</p>
+<p>By including this object within each container using the <code>environment: &lt;&lt;: *common-env</code> syntax in each containers configuration, we successfully allow for these secrets to now exist in the projects environment.</p>
+<h2 id="deployment-triggers">Deployment Triggers<a class="headerlink" href="#deployment-triggers" title="Permanent link">&para;</a></h2>
+<p>Our current deployment script is configured to act as soon as a PR is successfully merged into the <code>main</code> branch. Currently, for good practice, we have all PRs to <code>main</code> requiring at least one review before allowing them to be merged directly to the branch. We also have added branch protection preventing any deletion of the branch, as well as pushing commit directly to main.</p>
+<p>Any commits to <code>main</code> trigger the action to run, which consist of first granting necessary modification permissions to the directory of the project. Next, the docker containers are then confirmed to build. Following this, any existing containers are shut down, followed by the redeployment of the newly modified containers.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -903,10 +1059,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/", "features": ["navigation.instant", "navigation.tabs", "search.suggest", "content.code.copy"], "search": "/assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

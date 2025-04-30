@@ -8,22 +8,28 @@
       
       
       
+        <link rel="canonical" href="https://example.com/App-Setup/">
       
       
+        <link rel="prev" href="../local-development-faq/">
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      
+        <link rel="next" href="../db-setup/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>My Docs</title>
+        <title>Environment Setup - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#local-app-setup-inhereted-structure" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -77,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -97,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Environment Setup
             
           </span>
         </div>
@@ -198,7 +209,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Home/" class="md-tabs__link">
+      <a href="../Home/" class="md-tabs__link">
         
   
   
@@ -219,7 +230,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Deployment-Procedure/" class="md-tabs__link">
+        <a href="../Deployment-Procedure/" class="md-tabs__link">
           
   
   
@@ -235,11 +246,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/local-development-faq/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../local-development-faq/" class="md-tabs__link">
           
   
   
@@ -259,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Structure-of-Project/" class="md-tabs__link">
+        <a href="../Structure-of-Project/" class="md-tabs__link">
           
   
   
@@ -293,7 +306,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -311,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Home/" class="md-nav__link">
+      <a href="../Home/" class="md-nav__link">
         
   
   
@@ -374,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Deployment-Procedure/" class="md-nav__link">
+      <a href="../Deployment-Procedure/" class="md-nav__link">
         
   
   
@@ -397,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Develop-Actions/" class="md-nav__link">
+      <a href="../Develop-Actions/" class="md-nav__link">
         
   
   
@@ -424,24 +437,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -454,7 +472,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Local Development Environment
@@ -468,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/local-development-faq/" class="md-nav__link">
+      <a href="../local-development-faq/" class="md-nav__link">
         
   
   
@@ -488,10 +506,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/App-Setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Environment Setup
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -502,6 +542,89 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-if-needed-install-necessary-frameworks-tools-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. (If Needed) Install Necessary Frameworks / Tools Locally
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-clone-repo-locally-from-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Clone Repo Locally from GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-node-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install Node Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pull-the-required-docker-images-from-remote-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Pull the Required Docker Images from Remote Registry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-docker-compose-file-to-start-the-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run the Docker Compose File to Start the Containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-setup-python-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Setup Python Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-run-parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Run Parser
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -514,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/db-setup/" class="md-nav__link">
+      <a href="../db-setup/" class="md-nav__link">
         
   
   
@@ -585,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Structure-of-Project/" class="md-nav__link">
+      <a href="../Structure-of-Project/" class="md-nav__link">
         
   
   
@@ -608,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/The-Eye-Overview/" class="md-nav__link">
+      <a href="../The-Eye-Overview/" class="md-nav__link">
         
   
   
@@ -631,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Percentiles-Documentation/" class="md-nav__link">
+      <a href="../Player-Percentiles-Documentation/" class="md-nav__link">
         
   
   
@@ -654,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/App-Folder/" class="md-nav__link">
+      <a href="../App-Folder/" class="md-nav__link">
         
   
   
@@ -677,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Utils-Directory/" class="md-nav__link">
+      <a href="../Utils-Directory/" class="md-nav__link">
         
   
   
@@ -700,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Directory/" class="md-nav__link">
+      <a href="../Player-Directory/" class="md-nav__link">
         
   
   
@@ -723,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Page/" class="md-nav__link">
+      <a href="../Player-Page/" class="md-nav__link">
         
   
   
@@ -746,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Stats-Redirect/" class="md-nav__link">
+      <a href="../Player-Stats-Redirect/" class="md-nav__link">
         
   
   
@@ -769,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Stats-%E2%80%90-Time%E2%80%90Filtered-Data-Analysis/" class="md-nav__link">
+      <a href="../Player-Stats-%E2%80%90-Time%E2%80%90Filtered-Data-Analysis/" class="md-nav__link">
         
   
   
@@ -792,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Components/" class="md-nav__link">
+      <a href="../Player-Components/" class="md-nav__link">
         
   
   
@@ -815,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Hitting-Stats-Visualization/" class="md-nav__link">
+      <a href="../Hitting-Stats-Visualization/" class="md-nav__link">
         
   
   
@@ -855,6 +978,79 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-if-needed-install-necessary-frameworks-tools-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. (If Needed) Install Necessary Frameworks / Tools Locally
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-clone-repo-locally-from-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Clone Repo Locally from GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-node-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install Node Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pull-the-required-docker-images-from-remote-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Pull the Required Docker Images from Remote Registry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-docker-compose-file-to-start-the-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run the Docker Compose File to Start the Containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-setup-python-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Setup Python Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-run-parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Run Parser
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -866,8 +1062,103 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="local-app-setup-inhereted-structure">Local App Setup (Inhereted Structure)<a class="headerlink" href="#local-app-setup-inhereted-structure" title="Permanent link">&para;</a></h1>
+<p><em>Last Updated 3/24/25 by Tyler Teufel</em></p>
+<h2 id="1-if-needed-install-necessary-frameworks-tools-locally">1. (If Needed) Install Necessary Frameworks / Tools Locally<a class="headerlink" href="#1-if-needed-install-necessary-frameworks-tools-locally" title="Permanent link">&para;</a></h2>
+<p>The first step in getting this project setup for local development is to make sure your machine has the necessary local dependencies. Though some might already have these installed, in the case that you do not, the following must be installed in order to run the project locally:</p>
+<ul>
+<li><a href="https://docs.docker.com/desktop/setup/install/windows-install/">Docker Desktop (Windows)</a> , <a href="https://docs.docker.com/desktop/setup/install/mac-install/">Docker Desktop (Mac)</a>, or <a href="https://docs.docker.com/desktop/setup/install/linux/ubuntu/">Docker Desktop (Linux)</a></li>
+<li><a href="https://nodejs.org/en/download">Node.js</a> (See drop down for different Operating Systems Options)</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
+</ul>
+<h2 id="2-clone-repo-locally-from-github">2. Clone Repo Locally from GitHub<a class="headerlink" href="#2-clone-repo-locally-from-github" title="Permanent link">&para;</a></h2>
+<p>The next step is to clone the remote GitHub repository locally for development. Once you are in the desired directory to store the project folder in, run the following command:</p>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tyler-teufel/datagetta.git
+</code></pre></div>
+
+<p>From here, you can <code>cd</code> into the generated folder to access the project in its git repository, and develop in your desired IDE.</p>
+<h2 id="3-install-node-dependencies">3. Install Node Dependencies<a class="headerlink" href="#3-install-node-dependencies" title="Permanent link">&para;</a></h2>
+<p>If you have not already, run the following command to enter the project folder. If you have already opened the project folder in your IDE of choice, you may skip this step.</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>datagetta
+</code></pre></div>
+
+<p>Once in the project repo directory, the next step will be to navigate into the UI folder to install the node package dependencies needed to make the Next.js project and any additionally used packages operate as intended:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>dg-frontend
+npm<span class="w"> </span>install
+</code></pre></div>
+
+<p>You can past both lines into the terminal and they should execute sequentially; however feel free to enter them one at a time as well.</p>
+<p>If any errors are encountered, double check that you have installed Node correctly, and that it is at least version 21.</p>
+<p><strong>Please Note: This may take a minute or so upon the first installation. This is a large project, so if you see the animated spinning loader icon in the terminal, it should be working as intended.</strong></p>
+<h2 id="3-pull-the-required-docker-images-from-remote-registry">3. Pull the Required Docker Images from Remote Registry<a class="headerlink" href="#3-pull-the-required-docker-images-from-remote-registry" title="Permanent link">&para;</a></h2>
+<p>Next, we need to pull the 3 images needed to run the project into your local docker environment, which have the correct image versions configured in the <code>docker-compose.yaml</code> file.</p>
+<p>To pull the images from the remote registry, run the following:</p>
+<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>pull
+</code></pre></div>
+
+<p>If your system does not recognize docker for whatever reason, please verify the installation worked correctly.</p>
+<h2 id="run-the-docker-compose-file-to-start-the-containers">Run the Docker Compose File to Start the Containers<a class="headerlink" href="#run-the-docker-compose-file-to-start-the-containers" title="Permanent link">&para;</a></h2>
+<p>In order to have the pulled docker images begin to run as containers, allowing your project to get started, run the following command from the outer directory, with the locally configured <code>docker-compose.override.yaml</code> file:</p>
+<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+
+<p>It is imperative that, when working locally, you ensure you utilize the overflow file such that you are not using the prod setup.</p>
+<p>The terminal should show the containers starting, and finish with dialog that either says <code>started</code> or <code>running</code>.</p>
+<p>From here, open up your browser and navigate to <code>localhost:3000</code> to access the Next.js web app.</p>
+<h2 id="4-setup-python-environment">4. Setup Python Environment<a class="headerlink" href="#4-setup-python-environment" title="Permanent link">&para;</a></h2>
+<p>To get setup with the parser locally, first you want to navigate back to the home directory of the project, and setup your venv:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..<span class="w"> </span><span class="c1"># This should take you back to the root directory /datagetta</span>
+</code></pre></div>
+
+<p>Once in the root directory, run the following to create your venv with the closest python version you have to <code>3.10</code>:</p>
+<p>For Unix based OS (Mac / Linux):</p>
+<div class="codehilite"><pre><span></span><code>python3.10<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>dg-env
+<span class="nb">source</span><span class="w"> </span>dg-env/bin/activate
+</code></pre></div>
+
+<p>For Windows:</p>
+<div class="codehilite"><pre><span></span><code>python3.10<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>dg-env
+<span class="nb">source</span><span class="w"> </span>dg-env/Scripts/activate
+</code></pre></div>
+
+<p>Please note - you do not have to install 3.10 if you do not have it. Simply use the lowest python version you have.</p>
+<p>Next, you need to navigate to the parser directory:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>csvparser/src
+</code></pre></div>
+
+<p>Once you are in src, you need to install the python package dependencies in the venv. Make sure to first verify that your terminal is using the correct python venv:</p>
+<div class="codehilite"><pre><span></span><code>which<span class="w"> </span>python3<span class="w"> </span><span class="c1"># Or which python for windows</span>
+</code></pre></div>
+
+<p>If the returned path leads to your venv folder, then you are ready to continue. You then install the dependencies using <code>pip</code>:</p>
+<div class="codehilite"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+
+<p>for more info regarding package updates, see that wiki page <a href="../Dependency-Updates/">here</a>.</p>
+<h2 id="5-run-parser">5. Run Parser<a class="headerlink" href="#5-run-parser" title="Permanent link">&para;</a></h2>
+<p><strong>Please note - you can also run this directly in the container; however this is how I (Tyler) have been going about it.</strong></p>
+<p>In the <code>src</code> directory, running the parser is as easy as this command:</p>
+<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>ftpPuller.py
+</code></pre></div>
+
+<p><strong>Please note - this will take several hours!</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -903,10 +1194,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/", "features": ["navigation.instant", "navigation.tabs", "search.suggest", "content.code.copy"], "search": "/assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

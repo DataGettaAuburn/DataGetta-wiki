@@ -8,22 +8,28 @@
       
       
       
+        <link rel="canonical" href="https://example.com/db-setup/">
       
       
+        <link rel="prev" href="../App-Setup/">
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      
+        <link rel="next" href="../Structure-of-Project/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>My Docs</title>
+        <title>Docker Database Setup - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#local-db-setup-with-docker-guide" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -77,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -97,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Docker Database Setup
             
           </span>
         </div>
@@ -198,7 +209,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Home/" class="md-tabs__link">
+      <a href="../Home/" class="md-tabs__link">
         
   
   
@@ -219,7 +230,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Deployment-Procedure/" class="md-tabs__link">
+        <a href="../Deployment-Procedure/" class="md-tabs__link">
           
   
   
@@ -235,11 +246,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/local-development-faq/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../local-development-faq/" class="md-tabs__link">
           
   
   
@@ -259,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Structure-of-Project/" class="md-tabs__link">
+        <a href="../Structure-of-Project/" class="md-tabs__link">
           
   
   
@@ -293,7 +306,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -311,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Home/" class="md-nav__link">
+      <a href="../Home/" class="md-nav__link">
         
   
   
@@ -374,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Deployment-Procedure/" class="md-nav__link">
+      <a href="../Deployment-Procedure/" class="md-nav__link">
         
   
   
@@ -397,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Develop-Actions/" class="md-nav__link">
+      <a href="../Develop-Actions/" class="md-nav__link">
         
   
   
@@ -424,24 +437,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -454,7 +472,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Local Development Environment
@@ -468,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/local-development-faq/" class="md-nav__link">
+      <a href="../local-development-faq/" class="md-nav__link">
         
   
   
@@ -491,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/App-Setup/" class="md-nav__link">
+      <a href="../App-Setup/" class="md-nav__link">
         
   
   
@@ -511,10 +529,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/db-setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Docker Database Setup
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -525,6 +565,71 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pull-the-latest-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pull the Latest Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-shut-down-existing-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Shut Down Existing Containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-remove-existing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Remove Existing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-update-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Update Configuration File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-start-the-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Start the Containers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -585,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Structure-of-Project/" class="md-nav__link">
+      <a href="../Structure-of-Project/" class="md-nav__link">
         
   
   
@@ -608,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/The-Eye-Overview/" class="md-nav__link">
+      <a href="../The-Eye-Overview/" class="md-nav__link">
         
   
   
@@ -631,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Percentiles-Documentation/" class="md-nav__link">
+      <a href="../Player-Percentiles-Documentation/" class="md-nav__link">
         
   
   
@@ -654,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/App-Folder/" class="md-nav__link">
+      <a href="../App-Folder/" class="md-nav__link">
         
   
   
@@ -677,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Utils-Directory/" class="md-nav__link">
+      <a href="../Utils-Directory/" class="md-nav__link">
         
   
   
@@ -700,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Directory/" class="md-nav__link">
+      <a href="../Player-Directory/" class="md-nav__link">
         
   
   
@@ -723,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Page/" class="md-nav__link">
+      <a href="../Player-Page/" class="md-nav__link">
         
   
   
@@ -746,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Stats-Redirect/" class="md-nav__link">
+      <a href="../Player-Stats-Redirect/" class="md-nav__link">
         
   
   
@@ -769,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Stats-%E2%80%90-Time%E2%80%90Filtered-Data-Analysis/" class="md-nav__link">
+      <a href="../Player-Stats-%E2%80%90-Time%E2%80%90Filtered-Data-Analysis/" class="md-nav__link">
         
   
   
@@ -792,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Player-Components/" class="md-nav__link">
+      <a href="../Player-Components/" class="md-nav__link">
         
   
   
@@ -815,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Hitting-Stats-Visualization/" class="md-nav__link">
+      <a href="../Hitting-Stats-Visualization/" class="md-nav__link">
         
   
   
@@ -855,6 +960,61 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pull-the-latest-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pull the Latest Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-shut-down-existing-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Shut Down Existing Containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-remove-existing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Remove Existing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-update-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Update Configuration File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-start-the-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Start the Containers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -866,8 +1026,54 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="local-db-setup-with-docker-guide">Local DB Setup with Docker Guide<a class="headerlink" href="#local-db-setup-with-docker-guide" title="Permanent link">&para;</a></h1>
+<h3 id="1-pull-the-latest-changes">1. Pull the Latest Changes<a class="headerlink" href="#1-pull-the-latest-changes" title="Permanent link">&para;</a></h3>
+<p>Ensure your local repository is up to date by pulling the latest changes.</p>
+<h3 id="2-shut-down-existing-containers">2. Shut Down Existing Containers<a class="headerlink" href="#2-shut-down-existing-containers" title="Permanent link">&para;</a></h3>
+<p>If the container for this project is already running, navigate to the main directory and run the following command in the terminal:</p>
+<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v
+</code></pre></div>
+
+<h3 id="3-remove-existing-data">3. Remove Existing Data<a class="headerlink" href="#3-remove-existing-data" title="Permanent link">&para;</a></h3>
+<p>Delete the <code>data</code> and <code>backups</code> folders if they exist in the main directory.</p>
+<p><strong>Warning:</strong> This action will <strong>delete all data currently stored in the database</strong>.</p>
+<div class="codehilite"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>data<span class="w"> </span>backups
+</code></pre></div>
+
+<h3 id="4-update-configuration-file">4. Update Configuration File<a class="headerlink" href="#4-update-configuration-file" title="Permanent link">&para;</a></h3>
+<p>Navigate to your <code>.env</code> file and ensure the following settings are correct for local development:</p>
+<div class="codehilite"><pre><span></span><code>SQL_SERVER_NAME: &quot;localhost&quot;
+SQL_PORT: &quot;5433&quot;
+</code></pre></div>
+
+<p><strong>Note:</strong> This is for local development only. If running on the server, these values should be set as follows:</p>
+<div class="codehilite"><pre><span></span><code>SQL_SERVER_NAME: &quot;datagetta.cse.eng.auburn.edu&quot;
+SQL_PORT: &quot;5432&quot;
+</code></pre></div>
+
+<h3 id="5-start-the-containers">5. Start the Containers<a class="headerlink" href="#5-start-the-containers" title="Permanent link">&para;</a></h3>
+<p>In the main directory, bring up the containers in detached mode:</p>
+<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+
+<p>This will start the services defined in the <code>docker-compose.yml</code> file for local development.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -903,10 +1109,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/", "features": ["navigation.instant", "navigation.tabs", "search.suggest", "content.code.copy"], "search": "/assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
